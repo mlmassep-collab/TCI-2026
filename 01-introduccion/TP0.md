@@ -1,4 +1,4 @@
-# TP 0 – Conjuntos, Relaciones e Inducción
+# TP 0 – Conjuntos y Relaciones
 
 ## Mini-desafío de programación 0: Generador de conjuntos
 
