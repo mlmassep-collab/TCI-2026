@@ -54,8 +54,8 @@ Implemente un simulador simple de *AFD* en Python y úselo para probar sus dise�
 Ejemplo de estructura sugerida:
 
 ```python
-states = {"q0","q1","q2"}
-alphabet = {"0","1"}
+Q = {"q0","q1","q2"}
+sigma = {"0","1"}
 
 delta = {
 ("q0","0"):"q1",
@@ -66,16 +66,16 @@ delta = {
 ("q2","1"):"q1"
 }
 
-initial = "q0"
-accepting = {"q2"}
+q0 = "q0"
+F = {"q2"}
 
 def run(w):
-    state = initial
-    for c in w:
-        state = delta[(state,c)]
-    return state in accepting
+    estado = q0
+    for a in w:
+        estado = delta[(estado,a)]
+    return estado in F
 ```
-Antes de probar sus diseño, ejecute el código sugerido con las cadenas: 111, 110111, 1000 y 01.
+Antes de probar sus diseños, ejecute el código sugerido con las cadenas: 111, 110111, 1000 y 01.
 
 # Actividad 3 — Lenguajes que no son regulares
 
