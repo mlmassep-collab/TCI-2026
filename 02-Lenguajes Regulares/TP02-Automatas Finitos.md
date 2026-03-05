@@ -28,7 +28,7 @@ Para cada uno identifique:
 
 ## Formalización:
 
-* Para cada *AFD* escriba una aplicación de ${\delta^*}$ 
+* Para cada *AFD* escriba una aplicación de ${\delta}$ 
 
 * Escriba el lenguaje aceptado por cada *AFD*
 
