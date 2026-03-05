@@ -137,7 +137,7 @@ c) La clausura simétrica de A
 
 ## Bloque B – cardinalidad e infinito
 
-### 5. Busque información y bosqueje demsotraciones para las siguientes afirmaciones:
+### 5. Busque información y bosqueje demostraciones para las siguientes afirmaciones:
 
 * El conjunto de los números naturales pares tiene la misma cardinalidad que el conjunto de los números naturales impares.
 
