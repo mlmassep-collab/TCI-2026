@@ -1,34 +1,5 @@
 # Trabajo Práctico Nº 1 – Lenguajes Formales
 
-## Propósitos del trabajo práctico
-
-Este trabajo práctico tiene como objetivo introducir y consolidar los conceptos básicos de lenguajes formales, alfabetos, cadenas y relaciones de equivalencia, articulándolos con **actividades de programación** que permitan:
-
-* Pasar del razonamiento matemático abstracto a representaciones computacionales.
-* Reconocer a las cadenas como estructuras manipulables algorítmicamente.
-* Comprender el rol de los lenguajes formales como base de la informática (lenguajes de programación, compiladores, protocolos, etc.).
-
-## Objetivos de aprendizaje
-
-Al finalizar el trabajo práctico, se espera que el/la estudiante sea capaz de:
-
-* Identificar y justificar relaciones de equivalencia y sus particiones.
-* Reconocer alfabetos, cadenas y lenguajes en distintos contextos.
-* Implementar operaciones básicas sobre cadenas mediante programas simples.
-* Modelar conceptos teóricos de lenguajes formales utilizando un lenguaje de programación.
-* Interpretar el vínculo entre operaciones sobre cadenas y operaciones aritméticas.
-
-## Organización y tiempos sugeridos
-
-**Duración total estimada:** 4 a 5 horas
-
-* Introducción y consignas generales: 15 min
-* Actividad 1 (Relaciones y particiones): 45 min
-* Actividad 2 (Alfabetos y lenguajes): 45 min
-* Actividad 3 (Cadenas y operaciones): 60 min
-* Actividad 4 (Lenguajes y operaciones entre lenguajes): 45 min
-* Cierre y reflexión integradora: 30 min
-
 ## Actividad 1 – Relaciones de equivalencia y particiones (conceptual + código)
 
 ### Mini‑desafío de laboratorio 1: Clasificador de números
