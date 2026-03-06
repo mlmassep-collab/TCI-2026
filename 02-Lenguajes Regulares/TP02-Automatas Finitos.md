@@ -204,3 +204,21 @@ class AFND:
             "F": afd_F
         }
 ```
+## Actividad 6: Operaciones de cierre de los LR
+Tiempo: 45 minutos
+
+La unión, concatenación, intersección, estrella de Kleene y complemento de lenguajes regulares es un lenguaje regular. Recuerde revisar las demostraciones de estas propiedades para el examen final.
+
+Construir un AFD para cada uno de los siguientes lenguajes:
+
+L1 = { w ∈ {a,b}* | w = abbu, u ∈ {a,b}* }
+
+L2 = { w ∈ {a,b}* | w = uab, u ∈ {a,b}* }
+
+Luego:
+> a - Realizar las operaciones de cierre y obtener nuevos AFs.
+
+### Mini-desafío 5:
+* Implementar cada AF con la clase AFND y probarlos con diferentes cadenas.
+
+## Actividad 7: Cadena Inversa
