@@ -219,6 +219,19 @@ Luego:
 > a - Realizar las operaciones de cierre y obtener nuevos AFs.
 
 ### Mini-desafío 5:
-* Implementar cada AF con la clase AFND y probarlos con diferentes cadenas.
+* Implementar los AFs que obtuvo al realizar las operaciones con la clase AFND y probarlos con diferentes cadenas.
 
 ## Actividad 7: Cadena Inversa
+Tiempo: 60 minutos
+Construir AFD sobre ${\Sigma}$ = {x, y, z}
+
+> a - Cadenas que terminan con ${yxyz}$
+>
+> b - Cadenas que comienzan con ${xyz}$
+>
+> c - Cadenas que contienen con  ${zyxx}$
+
+Luego construir un autómata que acepte **las cadenas invertidas**.
+
+### Mini-desafío 6:
+Implementar una clase AFD en python que construya el AF para el lenguaje revertido aceptado por un AFD.
