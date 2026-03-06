@@ -1,4 +1,4 @@
-# Trabajo Práctico Nº 1 – Lenguajes Formales
+# Trabajo Práctico Nº 1 – Autómatas Finitos
 
 ## Actividad 1 - Explorando Autómatas Finitos Deterministas
 Tiempo estimado: 30 minutos
