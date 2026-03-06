@@ -1,4 +1,4 @@
-# TP 0 – Conjuntos y Relaciones
+# Trabajo Práctico N°0 – Conjuntos y Relaciones
 
 ## Mini-desafío de programación 0: Generador de conjuntos
 
