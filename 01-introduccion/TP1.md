@@ -2,13 +2,7 @@
 
 ## Actividad 1 – Relaciones de equivalencia y particiones (conceptual + código)
 
-### Mini‑desafío de laboratorio 1: Clasificador de números
-
-**Modalidad:** Presencial guiada (laboratorio)
-
-**Tiempo estimado:** 60 minutos
-
-**Contexto**
+### Mini‑desafío 1: Clasificador de números
 En informática es frecuente clasificar datos según reglas: tipos, categorías, estados. En este desafío se modelará una relación de equivalencia como un clasificador automático.
 
 **Desafío**
@@ -21,19 +15,12 @@ Se trabajará con la relación definida sobre los números naturales:
 
 **Consignas**
 
-1. Analice colectivamente si esta relación induce una partición de los naturales.
-2. Identifique las clases de equivalencia resultantes.
-3. Diseñe un algoritmo que, dado un número natural, determine a qué clase pertenece.
-4. Implemente el algoritmo en un lenguaje de programación a elección.
-5. Pruebe el programa con un conjunto de números generados al azar.
-
-**Productos esperados**
-
-* Código funcional del clasificador.
-* Breve justificación de por qué la relación es (o no) de equivalencia.
-
-**Cierre guiado (10 min)**
-Discusión sobre cómo una definición matemática se traduce en reglas algorítmicas.
+> 1. Analice colectivamente si esta relación induce una partición de los naturales.
+> 2. Identifique las clases de equivalencia resultantes.
+> 3. Diseñe un algoritmo que, dado un número natural, determine a qué clase pertenece.
+> 4. Implemente el algoritmo en un lenguaje de programación a elección.
+> 5. Pruebe el programa con un conjunto de números generados al azar.
+> 6. Justifique por qué la relación es (o no) de equivalencia.
 
 ## Actividad 2 – Relaciones en $(\mathbb{N} \times \mathbb{N})$
 
@@ -45,7 +32,7 @@ a) Demuestre que la relación es de equivalencia.
 
 b) Describa la partición inducida por la relación.
 
-2. **Extensión con programación:**
+### Mini‑desafío 2:
 
    * Escriba una función que determine si dos pares (a,b) y (m,n) están relacionados.
    * Genere automáticamente varias clases de equivalencia para pares con valores acotados.
@@ -70,7 +57,7 @@ b) Describa la partición inducida por la relación.
 
    En los casos afirmativos, indique el alfabeto y las reglas de formación.
 
-5. **Extensión con programación:**
+### Mini‑desafío 3:
 
    * Modele alfabeto, cadena y lenguaje mediante estructuras de datos.
      
@@ -78,16 +65,8 @@ b) Describa la partición inducida por la relación.
 
 ## Actividad 4 – Operaciones sobre cadenas y lenguajes
 
-### Mini‑desafío de programación 2: Motor simple de lenguajes
-
-**Modalidad:** Presencial guiada + trabajo autónomo
-
-**Tiempo estimado:** 75 minutos (45 presencial + 30 autónomo)
-
-**Contexto**
+### Mini‑desafío 4: Mini‑desafío de programación 2: Motor simple de lenguajes
 Los lenguajes formales están en la base de los lenguajes de programación, los analizadores léxicos y los compiladores. En este desafío se construirá un pequeño motor que opere sobre lenguajes finitos.
-
-**Desafío**
 
 Se consideran los lenguajes:
 
@@ -95,34 +74,23 @@ Se consideran los lenguajes:
 * L2 = {b, bd}
 * L2 = {a, b, c}
 
-**Consignas presenciales**
-
-1. Represente ambos lenguajes mediante estructuras de datos.
-2. Implemente funciones para:
-
+> 1. Represente ambos lenguajes mediante estructuras de datos.
+> 2. Implemente funciones para:
    * concatenación de lenguajes
    * unión
    * intersección
-   * potencia
-     
-3. Ejecute el programa y muestre los resultados obtenidos.
-
-**Consignas de trabajo autónomo**
-
-4. Experimente con otros lenguajes finitos definidos por usted.
-   
-6. Analice si se cumple que |L1 · L2| ≤ |L1| + |L2| en los casos probados.
+   * potencia   
+> 3. Ejecute el programa y muestre los resultados obtenidos.
+> 4. Experimente con otros lenguajes finitos definidos por usted.
 
 ## Actividad 5 – Cadenas, longitud y números naturales
 
 1. Considere la operación concatenación ${· : \Sigma^* \times \Sigma^* \to \Sigma^*}$
 
 2. Exprese una función que relacione:
-
    * cadenas y concatenación
    * números naturales y suma
 
-3. **Extensión con programación:**
-
+### Mini‑desafío 4:
    * Implemente una función que, dada una cadena, devuelva su longitud.
    * Analice cómo la longitud se comporta frente a la concatenación.
