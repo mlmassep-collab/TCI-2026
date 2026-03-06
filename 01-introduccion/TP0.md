@@ -131,9 +131,7 @@ c) La clausura simétrica de A
 ### Consignas
 
 * Represente la relación mediante una estructura adecuada.
-* Aplique el programa a ejemplos del TP original.
-* Compare el resultado algorítmico con el razonamiento teórico.
-
+* Aplique el programa al conjunto de la actividad.
 
 ## Bloque B – cardinalidad e infinito
 
