@@ -1,4 +1,6 @@
-# Actividad 1 - Explorando Autómatas Finitos Deterministas
+# Trabajo Práctico Nº 1 – Lenguajes Formales
+
+## Actividad 1 - Explorando Autómatas Finitos Deterministas
 Tiempo estimado: 30 minutos
 
 Considere los siguientes AFD:
@@ -20,19 +22,19 @@ Para cada uno identifique:
 > 
 > e - Función de transición ${\delta}$ y tabla de transición
 
-## Mini-desafío 1:
+### Mini-desafío 1:
 
 * Use el simulador https://automata-simulation.vercel.app/ para probar el funcionamiento de los autómatas de la Actividad 1.
 
 * Conjeture sobre las cadenas aceptadas por cada autómata
 
-## Formalización:
+### Formalización:
 
 * Para cada *AFD* escriba una aplicación de ${\delta}$ 
 
 * Escriba el lenguaje aceptado por cada *AFD*
 
-# Actividad 2 - Construcción de Autómatas Finitos Deterministas
+## Actividad 2 - Construcción de Autómatas Finitos Deterministas
 
 Tiempo estimado: 60 minutos
 
@@ -48,7 +50,7 @@ Describa los *AFD* que aceptan los siguientes lenguajes sobre el alfabeto ${\Sig
 >
 > f - El conjunto de cadenas que contengan una cantidad par de 0’s e impar de 1’s.
 
-## Mini-desafío 2:
+### Mini-desafío 2:
 Implemente un simulador simple de *AFD* en Python y úselo para probar sus diseños verificando la aceptación/rechazo de cadenas.
 
 Ejemplo de estructura sugerida:
@@ -77,7 +79,7 @@ def run(w):
 ```
 Antes de probar sus diseños, ejecute el código sugerido con las cadenas: 111, 110111, 1000 y 01.
 
-# Actividad 3 — Lenguajes que no son regulares
+## Actividad 3 — Lenguajes que no son regulares
 
 Tiempo: 45 minutos
 
@@ -91,10 +93,10 @@ Preguntas:
 >
 > c - ¿Qué problema aparece?
 
-## Formalización:
+### Formalización:
 Aplique el Lema de Bombeo para demostrar que el lenguaje no es regular
 
-# Actividad 4 — Automatas Modulares
+## Actividad 4 — Automatas Modulares
 Tiempo:30 minutos
 
 Los números divisibles por $M$ en base $b$ forman un lenguaje regular. Sea $b$ una base definimos ${\Sigma}$ = { ${0,...,b-1}$ } los lenguajes:
@@ -113,7 +115,7 @@ Construya un *AFD* para los siguientes lenguajes:
 > 
 > c - Pruebe sus diseño con el simulador construído en la *Actividad 2*
 
-# Actividad 5 — Automatas Finitos No Deterministas
+## Actividad 5 — Automatas Finitos No Deterministas
 Tiempo: 90 minutos
 Considere el siguiente AFND ${M = (Q, \Sigma, \delta, p_0, F)}$ definido de la siguiente manera:
 
@@ -130,7 +132,7 @@ Considere el siguiente AFND ${M = (Q, \Sigma, \delta, p_0, F)}$ definido de la s
 >
 > b - Determinar si las cadenas 001, 010111, 011, 100, 01001, 01110 son aceptadas por el AFND. Realice la aplicación de la función ${\delta}$.
 
-## Mini-desafío 3:
+### Mini-desafío 3:
 * Implemente un simulador simple de *AFND* en Python y úselo para implemetar el AFND de la actividad y verificar la aceptación/rechazo de cadenas.
 
 Código sugerido:
@@ -177,7 +179,7 @@ class AFND:
 ```
 > c - Obtener un AFD equivalente al AFND de la actividad
 
-## Mini-desafío 4:
+### Mini-desafío 4:
 * Modifique la clase AFND definida para que permita convertir un AFND en AFD y verifique los resultados obtenidos
 
 ```
