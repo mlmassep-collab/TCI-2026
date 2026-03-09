@@ -21,7 +21,7 @@ from IPython.display import display
 
 Código sugerido:
 
-
+```python
 class MS:
 
     def __init__(self, Q, sigma, delta, q0, salida, tipo="mealy"):
@@ -101,6 +101,7 @@ class MS:
         if w:
             print("cadena:", w)
             print("salida:", salida)
+```
 
 ## Actividad 2: Diseño de máquinas secuenciales
 Para cada uno de los siguientes lenguajes defina una Máquina de Moore y una Máquina de Mealy. ¿Qué alfabeto de salida es conveniente usar?
