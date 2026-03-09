@@ -106,11 +106,11 @@ class MS:
 ## Actividad 2: Diseño de máquinas secuenciales
 Para cada uno de los siguientes lenguajes defina una Máquina de Moore y una Máquina de Mealy. ¿Qué alfabeto de salida es conveniente usar?
 
-> a - L = {w ∈ {a, m, r}*| w = uTv, T = mar, u, v ∈ Σ*}
+> a - L = {w ∈ {a, m, r}\*| w = uTv, T = mar, u, v ∈ Σ\*}
 >
-> b - L = {w ∈ {e, o, p, s}*| w = uT, T = peso, u ∈ Σ*}
+> b - L = {w ∈ {e, o, p, s}\*| w = uT, T = peso, u ∈ Σ\*}
 > 
-> c - L = {w ∈ {o, s}*| w = Tv, T = oso, u ∈ Σ*}
+> c - L = {w ∈ {o, s}\*| w = Tv, T = oso, u ∈ Σ\*}
 
 ### Mini-desafío 2: 
 Compruebe sus diseño usando la calse MS de la Actividad 1
