@@ -126,4 +126,113 @@ La idea es:
 
 > a - Enuncie los lemas de minimización. Recuerde que debe considerar las demostraciones de estos lemas para el examen final.
 >
-> b - 
+> b - Diseñe una *MMe* y *MMo* para los siguientes lenguajes:
+> 
+>> 1 - L = { w ∈ Σ\* | w = vu, v ∈ {sol, solo, oso, soso, soma, so, moso} ∧ u ∈ Σ\* }
+>>
+>> 2 - L = { w ∈ Σ\* | w=uv, v ∈ {rol,loro,oro,rolo,lomo,lo,moro}, u ∈ Σ\*}
+>>
+>>3 - L = { w ∈ Σ\* | w=uvt, v ∈ {aba,bab,cab,bca,caba,abac,bac}, u,t ∈ Σ\*}
+>
+> c - Minimice las máquinas.
+
+### Mini-desafío 3: 
+* Agregue a la clase MS la posibilidad de minimizar una MS.
+* Pruebe sus diseños usando la calse MS y compruebe la corrección de la minimización aplicada.
+
+```python
+    def minimizar(self):
+
+        # partición inicial Π0
+        if self.tipo == "moore":
+
+            grupos = {}
+            for q in self.Q:
+                s = self.salida[q]
+                grupos.setdefault(s,set()).add(q)
+
+            P = list(grupos.values())
+
+        else:  # Mealy
+
+            grupos = {}
+            for q in self.Q:
+                salidas = tuple(self.salida[(q,a)] for a in sorted(self.sigma))
+                grupos.setdefault(salidas,set()).add(q)
+
+            P = list(grupos.values())
+
+
+        cambio = True
+
+        while cambio:
+
+            cambio = False
+            nuevaP = []
+
+            for grupo in P:
+
+                firmas = {}
+
+                for q in grupo:
+
+                    firma = []
+
+                    for a in sorted(self.sigma):
+
+                        q2 = self.delta[(q,a)]
+
+                        for i,g in enumerate(P):
+                            if q2 in g:
+                                firma.append(i)
+
+                    firma = tuple(firma)
+
+                    firmas.setdefault(firma,set()).add(q)
+
+                nuevaP.extend(firmas.values())
+
+                if len(firmas) > 1:
+                    cambio = True
+
+            P = nuevaP
+
+
+        # construir máquina mínima
+
+        representantes = {q: next(iter(g)) for g in P for q in g}
+
+        Qm = {next(iter(g)) for g in P}
+
+        delta_m = {}
+
+        for g in P:
+
+            r = next(iter(g))
+
+            for a in self.sigma:
+
+                q2 = self.delta[(r,a)]
+                delta_m[(r,a)] = representantes[q2]
+
+
+        if self.tipo == "moore":
+
+            salida_m = {next(iter(g)): self.salida[next(iter(g))] for g in P}
+
+        else:
+
+            salida_m = {}
+
+            for g in P:
+
+                r = next(iter(g))
+
+                for a in self.sigma:
+                    salida_m[(r,a)] = self.salida[(r,a)]
+
+
+        q0m = representantes[self.q0]
+
+        return MS(Qm, self.sigma, delta_m, q0m, salida_m, self.tipo), P
+```
