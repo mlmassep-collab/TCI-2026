@@ -21,7 +21,7 @@ En particular, se propone que el estudiante:
 
 ### Competencias de la carrera que aporta la asignatura
 
-La asignatura contribuye al desarrollo de competencias del perfil del egresado de la **Licenciatura en Análisis de Sistemas**, orientadas al análisis, diseño e implementación de soluciones informáticas para distintos tipos de organizaciones ([expofuturo.edusalta.gov.ar][2]).
+La asignatura contribuye al desarrollo de competencias del perfil del egresado de la **Licenciatura en Análisis de Sistemas**, orientadas al análisis, diseño e implementación de soluciones informáticas para distintos tipos de organizaciones.
 
 En particular, aporta al desarrollo de las siguientes competencias:
 
@@ -94,13 +94,14 @@ Equivalencia entre autómatas finitos, expresiones regulares y gramáticas regul
 
 Al finalizar la unidad el estudiante será capaz de:
 
-* Modelar lenguajes regulares mediante autómatas finitos.
 * Diseñar autómatas finitos deterministas y no deterministas.
 * Transformar autómatas no deterministas en deterministas.
+* Interpretar el funcionamiento de máquinas secuenciales de Moore y Mealy y su relación con los autómatas finitos.
 * Minimizar autómatas finitos.
 * Expresar lenguajes regulares mediante expresiones regulares.
+* Expresar lenguajes regulares mediante gramáticas regulafres.
 * Reconocer la equivalencia entre autómatas finitos, expresiones regulares y gramáticas regulares.
-* Interpretar el funcionamiento de máquinas secuenciales de Moore y Mealy.
+
 
 ### Unidad 3. Lenguajes libres de contexto
 
