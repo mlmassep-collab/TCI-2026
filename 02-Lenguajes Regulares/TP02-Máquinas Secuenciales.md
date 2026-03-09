@@ -1,6 +1,7 @@
 # Trabajo Práctico Nº 2 – Máquinas Secuenciales
 
 ## Actividad 1: Autómatas Finitos vs Máquinas Secuenciales
+Tiempo: 15 minutos
 Identifique las diferencias entre las Máquinas de Mealy y Moore. ¿Qué tipo de máquina puede relacionarse de manera directa con autómatas finitos? 
 
 ### Mini-desafío 1:
@@ -104,6 +105,7 @@ class MS:
 ```
 
 ## Actividad 2: Diseño de máquinas secuenciales
+Tiempo: 30 minutos
 Para cada uno de los siguientes lenguajes defina una Máquina de Moore y una Máquina de Mealy. ¿Qué alfabeto de salida es conveniente usar?
 
 > a - L = {w ∈ {a, m, r}\*| w = uTv, T = mar, u, v ∈ Σ\*}
@@ -114,3 +116,14 @@ Para cada uno de los siguientes lenguajes defina una Máquina de Moore y una Má
 
 ### Mini-desafío 2: 
 Compruebe sus diseño usando la calse MS de la Actividad 1
+
+## Actividad 3: Minimización de Máquinas Secuenciales
+Sí. Los lemas de minización describen  un algoritmo clásico de refinamiento de particiones por longitud de cadena (equivalencia ≡i). 
+La idea es:
+* Construir la partición inicial: estados distinguibles por salida.
+* Refinar usando el Lema 2.
+* Detenerse cuando Πi=Πi+1 usando el Lema 3.
+
+> a - Enuncie los lemas de minimización. Recuerde que debe considerar las demostraciones de estos lemas para el examen final.
+>
+> b - 
