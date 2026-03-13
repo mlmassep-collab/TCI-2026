@@ -47,39 +47,39 @@ La asignatura tiene como objetivo introducir al estudiante en los fundamentos te
 
 En particular, se propone que el estudiante:
 
-* Comprenda los conceptos fundamentales de **lenguajes formales, gramáticas y autómatas** como modelos abstractos de sistemas de cómputo.
-* Analice las diferentes **clases de lenguajes formales** y los modelos computacionales asociados.
-* Desarrolle habilidades para **modelar problemas mediante autómatas, gramáticas y máquinas abstractas**.
-* Comprenda las **capacidades y limitaciones de los distintos modelos de computación**.
-* Reconozca el rol de estos modelos en áreas de la informática como **compiladores, procesamiento de lenguajes, teoría de la computación y diseño de sistemas**.
-* Desarrolle capacidades de **abstracción, formalización y razonamiento matemático** aplicadas a problemas informáticos.
+* Comprenda los conceptos fundamentales de lenguajes formales, gramáticas y autómatas como modelos abstractos de sistemas de cómputo.
+* Analice las diferentes clases de lenguajes formales y los modelos computacionales asociados.
+* Desarrolle habilidades para modelar problemas mediante autómatas, gramáticas y máquinas abstractas.
+* Comprenda las capacidades y limitaciones de los distintos modelos de computación.
+* Reconozca el rol de estos modelos en áreas de la informática como compiladores, procesamiento de lenguajes, teoría de la computación y diseño de sistemas.
+* Desarrolle capacidades de abstracción, formalización y razonamiento matemático aplicadas a problemas informáticos.
 
 ### Competencias de la carrera que aporta la asignatura
 
-La asignatura contribuye al desarrollo de competencias del perfil del egresado de la **Licenciatura en Análisis de Sistemas**, orientadas al análisis, diseño e implementación de soluciones informáticas para distintos tipos de organizaciones.
+La asignatura contribuye al desarrollo de competencias del perfil del egresado de la Licenciatura en Análisis de Sistemas, orientadas al análisis, diseño e implementación de soluciones informáticas para distintos tipos de organizaciones.
 
 En particular, aporta al desarrollo de las siguientes competencias:
 
 #### Competencias específicas
 
-* **Modelar formalmente problemas computacionales** mediante estructuras matemáticas discretas.
-* Analizar y diseñar **modelos abstractos de procesamiento de información**.
-* Comprender los fundamentos teóricos de los **lenguajes de programación y los compiladores**.
-* Identificar las **capacidades y limitaciones de distintos modelos de computación**.
-* Aplicar conceptos formales para el **análisis y diseño de algoritmos y sistemas informáticos**.
+* Modelar formalmente problemas computacionales mediante estructuras matemáticas discretas.
+* Analizar y diseñar modelos abstractos de procesamiento de información.
+* Comprender los fundamentos teóricos de los lenguajes de programación y los compiladores.
+* Identificar las capacidades y limitaciones de distintos modelos de computación.
+* Aplicar conceptos formales para el análisis y diseño de algoritmos y sistemas informáticos.
 
 #### Competencias cognitivas y metodológicas
 
-* Desarrollar **pensamiento abstracto y formalización matemática**.
-* Analizar problemas complejos y **descomponerlos en estructuras formales**.
-* Utilizar **modelos teóricos para razonar sobre sistemas computacionales**.
-* Interpretar formalizaciones matemáticas y utilizarlas para la **validación de soluciones informáticas**.
+* Desarrollar pensamiento abstracto y formalización matemática.
+* Analizar problemas complejos y descomponerlos en estructuras formales.
+* Utilizar modelos teóricos para razonar sobre sistemas computacionales.
+* Interpretar formalizaciones matemáticas y utilizarlas para la validación de soluciones informáticas.
 
 #### Competencias transversales
 
-* Capacidad de **razonamiento lógico y demostración formal**.
-* Capacidad de **aprendizaje autónomo de modelos formales y teóricos**.
-* Capacidad de **comunicar y argumentar soluciones formales**.
+* Capacidad de razonamiento lógico y demostración formal.
+* Capacidad de aprendizaje autónomo de modelos formales y teóricos.
+* Capacidad de comunicar y argumentar soluciones formales.
 
 ## 12. Desarrollo del Programa
 
