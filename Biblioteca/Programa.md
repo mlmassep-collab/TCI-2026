@@ -46,14 +46,6 @@ En particular, aporta al desarrollo de las siguientes competencias:
 * Capacidad de **aprendizaje autónomo de modelos formales y teóricos**.
 * Capacidad de **comunicar y argumentar soluciones formales**.
 
-A continuación te propongo una **versión más completa y actualizada del programa analítico**, incorporando:
-
-* **Resultados de aprendizaje por unidad** (muy usados en acreditaciones).
-* **Distribución temporal de 15 semanas**.
-* Organización por **clases de lenguajes**.
-* Integración de **gramáticas desde la unidad de lenguajes regulares**.
-* Inclusión de los contenidos específicos que mencionaste para **Unidad 2 y 3**.
-
 ## Desarrollo del programa
 
 ### Unidad 1. Introducción a los lenguajes formales
