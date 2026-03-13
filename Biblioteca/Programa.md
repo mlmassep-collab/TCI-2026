@@ -233,6 +233,10 @@ Utilización de las estructuras desarrolladas para representar autómatas finito
 ### Laboratorio 4: Implementación de algoritmos sobre autómatas.
 Implementación de algoritmos básicos de manipulación de autómatas finitos utilizando los TAD previamente desarrollados.
 
+El desarrollo de los laboratorios contará con guías de trabajo que serán introducidas y orientadas durante las horas de clases prácticas. No obstante, la implementación completa de las actividades requerirá trabajo adicional por parte de los estudiantes fuera del aula. Para ello se prevé acompañamiento mediante horarios de consulta, foros y gupos de comunicación vía la plataforma Telegram. En consecuencia, estas actividades suponen una importante carga de estudio y desarrollo autónomo, promoviendo la capacidad de los estudiantes para profundizar contenidos, resolver problemas de programación y consolidar los conceptos teóricos de la asignatura.
+
+El trabajo se desarrollará preferentemente en modalidad grupal, con el propósito de fomentar el intercambio de ideas, la discusión de soluciones y el aprendizaje colaborativo. Esta modalidad busca fortalecer habilidades de trabajo en equipo, organización del desarrollo de software y comunicación técnica, competencias relevantes para la formación profesional en informática.
+
 #### Objetivos de aprendizaje
 
 Al finalizar el trabajo práctico, se espera que el estudiante sea capaz de diseñar e implementar tipos abstractos de datos en lenguaje C, modelar cadenas de caracteres, listas y conjuntos mediante estructuras dinámicas, utilizar asignación dinámica de memoria y punteros en la implementación de estructuras de datos, implementar algoritmos básicos de manipulación de autómatas finitos e integrar herramientas de programación con conceptos teóricos de lenguajes formales y autómatas.
