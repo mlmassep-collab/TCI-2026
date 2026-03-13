@@ -59,7 +59,7 @@ Representación de estructuras discretas: grafos y árboles.
 Herramientas matemáticas básicas: relaciones, funciones discretas y conjuntos infinitos.
 Modelos formales de computación: dispositivos de aceptación, generación y traducción.
 
-**Resultados de aprendizaje**
+**Objetivos de aprendizaje**
 
 Al finalizar la unidad el estudiante será capaz de:
 
@@ -82,7 +82,7 @@ Expresiones regulares.
 Gramáticas regulares y su relación con los lenguajes regulares.
 Equivalencia entre autómatas finitos, expresiones regulares y gramáticas regulares.
 
-**Resultados de aprendizaje**
+**Objetivos de aprendizaje**
 
 Al finalizar la unidad el estudiante será capaz de:
 
@@ -108,7 +108,7 @@ Autómatas de pila deterministas y no deterministas.
 Lenguajes aceptados por autómatas de pila deterministas y no deterministas.
 Equivalencia entre gramáticas libres de contexto y autómatas de pila.
 
-**Resultados de aprendizaje**
+**Objetivos de aprendizaje**
 
 Al finalizar la unidad el estudiante será capaz de:
 
@@ -131,7 +131,7 @@ Funciones computables.
 Hipótesis de Church–Turing.
 Clasificación de lenguajes formales: jerarquía de Chomsky.
 
-**Resultados de aprendizaje**
+**Objetivos de aprendizaje**
 
 Al finalizar la unidad el estudiante será capaz de:
 
