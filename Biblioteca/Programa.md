@@ -141,6 +141,21 @@ Al finalizar la unidad el estudiante será capaz de:
 * Analizar la relación entre los distintos modelos de computación.
 * Interpretar la jerarquía de Chomsky como clasificación de los lenguajes formales.
 
+## Programa de Trabajos Prácticos
+
+Trabajo Práctico N° 1.1: Nociones de Conjuntos
+Trabajo Práctico N° 1.2: Nociones de Lenguajes Formales
+
+Trabajo Práctico N° 2.1: Autómatas Finitos
+Trabajo Práctico N° 2.2: Máquinas Secuenciales
+Trabajo PRáctico N° 2.3: Expresiones Regulares
+Trabajo PRáctico N° 2.4: Gramáticas Regulares
+
+Trabajo Práctico N° 3.1: Gramáticas Libres de Contexto
+Trabajo Práctico N° 3.2: Autómtas de Pila
+
+Trabajo Práctico N° 4: Máquinas de Turing
+
 ## Distribución temporal tentativa (15 semanas)
 
 | Semana | Contenido                                                         |
