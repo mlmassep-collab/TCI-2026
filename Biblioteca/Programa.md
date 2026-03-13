@@ -1,10 +1,38 @@
 # Programa Analítico
 
-## Teoría de la Computación I
+### 1. DEPARTAMENTO DOCENTE O DEPENDENCIA: Departamento de Informática
+### 2. CATEDRA: TEORÍA DE LA COMPUTACIÓN
+### 3. ASIGNATURA: TEORÍA DE LA COMPUTACIÓN I
+### 4. CARRERA/S: Licenciatura en Análisis de Sistemas Plan 2010 (Res CS N° 262/2012)
+### 5. ÚLTIMO PROGRAMA VIGENTE APROBADO POR RESOLUCIÓN: RESD-EXA Nº 747/2019
 
-### Contenidos mínimos
+### 6. EQUIPO DOCENTE:
+Profesor Responsable: Dr. Javier Trenti
+
+Profesores Auxiliares: Lic. María Laura Massé Palermo, Lic. Darío R. Ledesma
+
+### 7. UBICACIÓN EN EL/LOS PLAN/ES DE ESTUDIOS:  
+Año de cursado: Segundo Año     
+
+Cuatrimestre: Primero
+
+Carga horaria total: 120hs
+
+Carga horaria semanal de Teoría: 4hs
+
+Carga horaria semanal de Práctica: 4hs
+
+### 8. Contenidos mínimos
 
 Lenguajes formales y autómatas. Lenguajes regulares. Autómatas finitos deterministas y no deterministas. Expresiones regulares. Gramáticas regulares. Lenguajes libres de contexto. Gramáticas libres de contexto. Autómatas de pila. Máquinas secuenciales. Máquinas de Turing. Lenguajes recursivamente enumerables. Jerarquía de Chomsky.
+
+### 9. Correlatividades
+
+Para cursar: Regular Matemática para Informática y Programación
+
+Para rendir: Aprobadas Matemática para Informática y Programación
+
+### 10. Justificación
 
 ### Objetivos de la asignatura
 
