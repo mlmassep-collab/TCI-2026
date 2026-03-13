@@ -34,7 +34,14 @@ Para rendir: Aprobadas Matemática para Informática y Programación
 
 ### 10. Justificación
 
-### Objetivos de la asignatura
+Las Ciencias de la Computación proporcionan el marco teórico para el estudio de los algoritmos, los lenguajes de programación y los dispositivos de cómputo. Dentro de este campo se distinguen tres áreas fundamentales: la teoría de autómatas, la teoría de la computabilidad y la teoría de la complejidad computacional.
+
+Esta asignatura introduce los fundamentos de la teoría de autómatas y lenguajes formales mediante el estudio de modelos matemáticos de computación como autómatas finitos, autómatas de pila y máquinas de Turing, así como de los lenguajes formales asociados a dichos modelos. Estos conceptos permiten comprender distintos niveles de expresividad en los lenguajes formales y su clasificación en la jerarquía de Chomsky.
+
+En la formación del analista de sistemas, estos contenidos brindan bases teóricas para comprender el funcionamiento y diseño de lenguajes de programación, compiladores y sistemas de procesamiento de información, además de constituir el fundamento conceptual para el estudio posterior de la computabilidad y la complejidad computacional.
+
+
+### 11. Objetivos de la asignatura
 
 La asignatura tiene como objetivo introducir al estudiante en los fundamentos teóricos de la computación mediante el estudio de los lenguajes formales y los modelos matemáticos de reconocimiento y generación de lenguajes.
 
@@ -74,18 +81,9 @@ En particular, aporta al desarrollo de las siguientes competencias:
 * Capacidad de **aprendizaje autónomo de modelos formales y teóricos**.
 * Capacidad de **comunicar y argumentar soluciones formales**.
 
-## Desarrollo del programa
+## 12. Desarrollo del Programa
 
 ### Unidad 1. Introducción a los lenguajes formales
-
-**Contenidos**
-
-Motivación para el estudio de los lenguajes formales y los modelos de computación.
-Conceptos básicos: alfabetos, cadenas y lenguajes formales.
-Operaciones sobre lenguajes.
-Representación de estructuras discretas: grafos y árboles.
-Herramientas matemáticas básicas: relaciones, funciones discretas y conjuntos infinitos.
-Modelos formales de computación: dispositivos de aceptación, generación y traducción.
 
 **Objetivos de aprendizaje**
 
@@ -97,18 +95,16 @@ Al finalizar la unidad el estudiante será capaz de:
 * Representar estructuras discretas básicas mediante grafos y árboles.
 * Reconocer distintos modelos formales de computación.
 
-### Unidad 2. Lenguajes regulares
-
 **Contenidos**
 
-Lenguajes regulares.
-Autómatas finitos deterministas y no deterministas.
-Equivalencia entre autómatas deterministas y no deterministas.
-Máquinas secuenciales: máquinas de Moore y máquinas de Mealy.
-Minimización de autómatas finitos.
-Expresiones regulares.
-Gramáticas regulares y su relación con los lenguajes regulares.
-Equivalencia entre autómatas finitos, expresiones regulares y gramáticas regulares.
+Motivación para el estudio de los lenguajes formales y los modelos de computación.
+Conceptos básicos: alfabetos, cadenas y lenguajes formales.
+Operaciones sobre lenguajes.
+Representación de estructuras discretas: grafos y árboles.
+Herramientas matemáticas básicas: relaciones, funciones discretas y conjuntos infinitos.
+Modelos formales de computación: dispositivos de aceptación, generación y traducción.
+
+### Unidad 2. Lenguajes regulares
 
 **Objetivos de aprendizaje**
 
@@ -122,19 +118,18 @@ Al finalizar la unidad el estudiante será capaz de:
 * Expresar lenguajes regulares mediante gramáticas regulafres.
 * Reconocer la equivalencia entre autómatas finitos, expresiones regulares y gramáticas regulares.
 
-
-### Unidad 3. Lenguajes libres de contexto
-
 **Contenidos**
 
-Gramáticas libres de contexto.
-Sistemas de producciones.
-Derivaciones y árboles de derivación.
-Ambigüedad en gramáticas.
-Simplificación de gramáticas libres de contexto: eliminación de símbolos inútiles.
-Autómatas de pila deterministas y no deterministas.
-Lenguajes aceptados por autómatas de pila deterministas y no deterministas.
-Equivalencia entre gramáticas libres de contexto y autómatas de pila.
+Lenguajes regulares.
+Autómatas finitos deterministas y no deterministas.
+Equivalencia entre autómatas deterministas y no deterministas.
+Máquinas secuenciales: máquinas de Moore y máquinas de Mealy.
+Minimización de autómatas finitos.
+Expresiones regulares.
+Gramáticas regulares y su relación con los lenguajes regulares.
+Equivalencia entre autómatas finitos, expresiones regulares y gramáticas regulares.
+
+### Unidad 3. Lenguajes libres de contexto
 
 **Objetivos de aprendizaje**
 
@@ -147,17 +142,18 @@ Al finalizar la unidad el estudiante será capaz de:
 * Modelar lenguajes libres de contexto mediante autómatas de pila.
 * Reconocer la relación entre gramáticas libres de contexto y autómatas de pila.
 
-### Unidad 4. Máquinas de Turing y jerarquía de lenguajes
-
 **Contenidos**
 
-Modelo de la máquina de Turing.
-Definiciones formales y funcionamiento.
-Construcción de máquinas de Turing.
-Lenguajes recursivamente enumerables.
-Funciones computables.
-Hipótesis de Church–Turing.
-Clasificación de lenguajes formales: jerarquía de Chomsky.
+Gramáticas libres de contexto.
+Sistemas de producciones.
+Derivaciones y árboles de derivación.
+Ambigüedad en gramáticas.
+Simplificación de gramáticas libres de contexto: eliminación de símbolos inútiles.
+Autómatas de pila deterministas y no deterministas.
+Lenguajes aceptados por autómatas de pila deterministas y no deterministas.
+Equivalencia entre gramáticas libres de contexto y autómatas de pila.
+
+### Unidad 4. Máquinas de Turing y jerarquía de lenguajes
 
 **Objetivos de aprendizaje**
 
@@ -169,7 +165,17 @@ Al finalizar la unidad el estudiante será capaz de:
 * Analizar la relación entre los distintos modelos de computación.
 * Interpretar la jerarquía de Chomsky como clasificación de los lenguajes formales.
 
-## Programa de Trabajos Prácticos
+**Contenidos**
+
+Modelo de la máquina de Turing.
+Definiciones formales y funcionamiento.
+Construcción de máquinas de Turing.
+Lenguajes recursivamente enumerables.
+Funciones computables.
+Hipótesis de Church–Turing.
+Clasificación de lenguajes formales: jerarquía de Chomsky.
+
+## 13. Programa de Trabajos Prácticos
 
 Trabajo Práctico N° 1.1: Nociones de Conjuntos
 Trabajo Práctico N° 1.2: Nociones de Lenguajes Formales
@@ -184,24 +190,59 @@ Trabajo Práctico N° 3.2: Autómtas de Pila
 
 Trabajo Práctico N° 4: Máquinas de Turing
 
-## Distribución temporal tentativa (15 semanas)
+### Distribución temporal tentativa (15 semanas)
 
-| Semana | Contenido                                                         |
-| ------ | ----------------------------------------------------------------- |
-| 1      | Introducción a lenguajes formales. Alfabetos, cadenas y lenguajes |
-| 2      | Operaciones sobre lenguajes. Grafos y árboles                     |
-| 3      | Autómatas finitos deterministas                                   |
-| 4      | Autómatas finitos no deterministas                                |
-| 5      | Equivalencia AFN–AFD                                              |
-| 6      | Minimización de autómatas finitos                                 |
-| 7      | Expresiones regulares                                             |
-| 8      | Gramáticas regulares y equivalencia con autómatas                 |
-| 9      | Máquinas secuenciales (Moore y Mealy)                             |
-| 10     | Gramáticas libres de contexto                                     |
-| 11     | Derivaciones y árboles de derivación                              |
-| 12     | Ambigüedad y simplificación de GLC                                |
-| 13     | Autómatas de pila                                                 |
-| 14     | Máquinas de Turing                                                |
-| 15     | Jerarquía de Chomsky e integración de contenidos                  |
+| Semana | Contenido                                                         | TP          | 
+| ------ | ----------------------------------------------------------------- |-------------|
+| 1      | Nociones de Conjuntos, cardinalidad, relaciones y funciones       |TP N° 1.1    |
+| 2      | Introducción a lenguajes formales. Alfabetos, cadenas y lenguajes |TP N° 1.2    |
+| 3      | Autómatas finitos deterministas                                   |TP N° 2.1    |
+| 4      | Autómatas finitos no deterministas                                |TP N° 2.1    |
+| 5      | Equivalencia AFND–AFD                                             |TP N° 2.1    |
+| 6      | Máquinas secuenciales (Moore y Mealy)                             |TP N° 2.2    |
+| 7      | Minimización de Máquinas Secuenciales y Autómatas Finitos         |TP N° 2.2    |
+| 8      | Expresiones Regulares y equivalencia con Autómatas Finitos        |TP N° 2.3    |
+| 9      | Gramáticas Regulares y equivalencia con Autómatas Finitos         |TP N° 2.4    |
+| 10     | Gramáticas Libres de Contexto - GLC                               |TP N° 3.1    |
+| 11     | Ambigüedad y simplificación de GLC                                |TP N° 3.1    |
+| 12     | Autómatas de pila                                                 |TP N° 3.2    |
+| 13     | Equivalencia entre autómatas de pila y gramáticas regulares       |TP N° 3.2    |
+| 14     | Máquinas de Turing                                                |TP N° 4      |
+| 15     | Máquinas de Turing y Jerarquía de Chomsky                         |TP N° 4      |
+
+
+## 14. Laboratorios
+
+Durante el cursado se desarrollarán actividades de laboratorio orientadas a la implementación de estructuras de datos y algoritmos relacionados con los modelos formales estudiados en la asignatura. Estas actividades se integran en un Trabajo Práctico Transversal (TPT) que se desarrolla a lo largo del cuatrimestre.
+
+El objetivo general del TPT es diseñar e implementar, en lenguaje C, un Tipo Abstracto de Datos (TAD) que modele objetos matemáticos como listas y conjuntos, junto con sus operaciones básicas. Este TAD será posteriormente utilizado como soporte para la implementación de algoritmos sobre autómatas finitos, integrando así los conceptos de programación con los modelos formales abordados en la asignatura.
+
+Asimismo, este trabajo establece una articulación con la asignatura Teoría de la Computación II, en la cual los estudiantes reutilizarán el TAD desarrollado para implementar un mini intérprete que permita manipular listas y conjuntos. En dicha asignatura se emplearán herramientas de análisis léxico y sintáctico como Flex y Bison, lo que permitirá vincular el desarrollo de estructuras de datos y algoritmos con los conceptos de lenguajes formales y compiladores.
+
+Se prevén las siguientes etapas de trabajo.
+
+### Laboratorio 1: Implementación de estructuras dinámicas.
+Implementación en lenguaje C de estructuras dinámicas básicas utilizando listas enlazadas y asignación dinámica de memoria. Modelado de cadenas de caracteres y colecciones de elementos.
+
+### Laboratorio 2: Implementación del TAD de listas y conjuntos.
+Diseño e implementación de un tipo abstracto de datos que represente listas y conjuntos, incluyendo operaciones básicas como inserción, eliminación, pertenencia, unión e intersección.
+
+### Laboratorio 3: Representación de autómatas finitos.
+Utilización de las estructuras desarrolladas para representar autómatas finitos deterministas y no deterministas.
+
+### Laboratorio 4: Implementación de algoritmos sobre autómatas.
+Implementación de algoritmos básicos de manipulación de autómatas finitos utilizando los TAD previamente desarrollados.
+
+#### Objetivos de aprendizaje
+
+Al finalizar el trabajo práctico, se espera que el estudiante sea capaz de diseñar e implementar tipos abstractos de datos en lenguaje C, modelar cadenas de caracteres, listas y conjuntos mediante estructuras dinámicas, utilizar asignación dinámica de memoria y punteros en la implementación de estructuras de datos, implementar algoritmos básicos de manipulación de autómatas finitos e integrar herramientas de programación con conceptos teóricos de lenguajes formales y autómatas.
+
+#### Resultados esperados
+
+Al finalizar el TPT, los estudiantes deberán contar con un programa en lenguaje C que implemente los tipos abstractos de datos necesarios y permita representar y manipular autómatas finitos, incluyendo algunas de las operaciones y algoritmos estudiados durante el curso. El diseño modular del TAD permitirá además su reutilización en asignaturas posteriores.
+
+#### Criterios de evaluación
+
+La evaluación del trabajo considerará la correcta implementación de las estructuras de datos y operaciones definidas, el adecuado uso de memoria dinámica y punteros, la correcta implementación de los algoritmos sobre autómatas, la claridad, organización y documentación del código, y el funcionamiento correcto del programa ante distintos casos de prueba.
 
 
