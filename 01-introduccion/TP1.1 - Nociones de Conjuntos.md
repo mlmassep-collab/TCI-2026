@@ -1,4 +1,4 @@
-# Trabajo Práctico N°0 – Conjuntos y Relaciones
+# Trabajo Práctico N°1.1 – Nociones de Conjuntos
 
 ## Mini-desafío de programación 0: Generador de conjuntos
 
