@@ -1,4 +1,4 @@
-# Trabajo Práctico Nº 2 – Máquinas Secuenciales
+# Trabajo Práctico Nº 2.2 – Máquinas Secuenciales
 
 ## Actividad 1: Autómatas Finitos vs Máquinas Secuenciales
 Tiempo: 15 minutos
