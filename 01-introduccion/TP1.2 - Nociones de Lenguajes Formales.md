@@ -1,4 +1,4 @@
-# Trabajo Práctico Nº 1 – Lenguajes Formales
+# Trabajo Práctico Nº 1.2 – Nociones de Lenguajes Formales
 
 ## Actividad 1 – Relaciones de equivalencia y particiones (conceptual + código)
 
