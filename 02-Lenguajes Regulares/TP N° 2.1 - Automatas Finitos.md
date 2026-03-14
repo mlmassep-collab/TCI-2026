@@ -1,4 +1,4 @@
-# Trabajo Práctico Nº 2 – Autómatas Finitos
+# Trabajo Práctico Nº 2-1 – Autómatas Finitos
 
 ## Actividad 1 - Explorando Autómatas Finitos Deterministas
 Tiempo estimado: 30 minutos
