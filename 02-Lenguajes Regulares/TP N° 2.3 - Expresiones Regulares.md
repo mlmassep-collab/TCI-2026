@@ -1,4 +1,4 @@
-# Trabajo Práctico N° 2.3 - Expresiones Regulares y Autómatas
+# Trabajo Práctico N° 2.3 - Expresiones Regulares
 
 ## Ejercicio 1 – Interpretación de Expresiones Regulares
 
