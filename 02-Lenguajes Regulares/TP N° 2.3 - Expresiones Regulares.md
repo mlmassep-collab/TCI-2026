@@ -1,6 +1,6 @@
 # Trabajo Práctico N° 2.3 - Expresiones Regulares
 
-## Ejercicio 1 – Interpretación de Expresiones Regulares
+## Actividad 1: Interpretación de Expresiones Regulares
 
 Describa el lenguaje denotado por cada una de las siguientes expresiones regulares:
 
@@ -33,7 +33,7 @@ Describa el lenguaje denotado por cada una de las siguientes expresiones regular
 > 
 > c. Compará las cadenas generadas por tu función con las cadenas aceptadas por el regex del lenguaje y detectá posibles inconsistencias.
 
-## Ejercicio 2 – Lenguajes, ER y Autómatas
+## Actividad 2: Lenguajes, ER y Autómatas
 
 Para cada lenguaje:
 
@@ -63,7 +63,7 @@ c) Cadenas donde cada y está:
 ### Minidesafío de programación 2
 > Usá el generador de cadenas implementado en el punto anterior y los simuladores de AFD que desarrollaste en el TP 2.1 y verificá la aceptación de las cadenas generadas.
 
-## Ejercicio 3 – Modelado de Lenguajes
+## Actividad 3: Modelado de Lenguajes
 
 Para cada lenguaje:
 
@@ -95,7 +95,7 @@ b) Cadenas que contienen:
 ### Minidesafío de programación 3
 > Usá el generador de cadenas implementado en el ejercicio 1 y los simuladores de AFD que desarrollaste en el TP 2.1 y verificá la aceptación de las cadenas generadas.
 
-## Ejercicio 4 – Conersión de ER a AFND
+## Actividad 4: Conersión de ER a AFND
 
 Utilizando los esquemas de construcción (unión, concatenación y estrella de Kleene), construir un *AFND* para los siguientes lenguajes.
 
@@ -124,7 +124,7 @@ L = { w ∈ {a, b}* | w = ((ab*)*ab)* }
 > 
 > ¿Tu AFD es mínimo?
 
-## Ejercicio 6 – Conversión de AFD a ER - Método Gráfico
+## Actividad 5: Conversión de AFD a ER - Método Gráfico
 
 Dado los siguientes autómatas finitos determinista, obtener la expresión regular equivalente mediante método gráfico.
 
@@ -140,7 +140,7 @@ Dado los siguientes autómatas finitos determinista, obtener la expresión regul
 > 
 > ¿El resultado es único?
 
-## Ejercicio 7 – C Conversión de AFD a ER - Método Algebraico
+## Actividad 6: C Conversión de AFD a ER - Método Algebraico
 
 A partir de los AFND obtenidos en el Ejercicio 4, obtener el AFD equivalente y encontrar una expresión regular para cada lenguaje usando el método algebraico.
 
