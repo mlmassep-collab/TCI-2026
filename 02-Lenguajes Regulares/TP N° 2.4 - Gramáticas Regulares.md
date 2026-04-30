@@ -107,7 +107,7 @@ Cadenas sobre el alfabeto ({I, V, X, L, C, D, M}) que representen números roman
 
 ## Actividad 3
 
-Defina una gramática regular que genere el lenguaje definido por las siguientes expresiones regulares y muestre para cada lenguaje derivaciones de al menos dos cadenas.
+Defina una gramática regular que genere cada uno de los lenguajes descriptos a continuación.
 
 (a) ${ aa^* \(ab + a\)^* }$
 
@@ -118,3 +118,16 @@ Defina una gramática regular que genere el lenguaje definido por las siguientes
 (d) L = { $w \in \Sigma^* \mid cant_a(w) + 3cant_b(w) \text{ es impar} $}
 
 (e) L = { $w \in \Sigma^* \mid cant_a(w) \land cant_b(w) \text{ ambos son impares} $}
+
+## Actividad 4
+
+a. Enuncie el teorema de conversión de GR a AF
+
+b. A partir de las GR de la Actividad 3, gnere los AF correspondientes
+
+## Actividad 5
+
+a. Enuncie el teorema de conversión de AF a GR
+
+b. Para cada AF del Trabajo Práctico 2.1 Actividades 2 y 4, obtener su GR equivalente
+
