@@ -121,6 +121,27 @@ void append_set(Tdata *A, Tdata e){
 }
 
 
+	
+void append_list(Tdata *L, Tdata e){
+	Tdata nuevo = create_list();
+	
+	nuevo->data = clone(e);
+	nuevo->next = NULL;
+	
+	if(*L == NULL){
+		*L = nuevo;
+	} else {
+		Tdata aux = *L;
+		while(aux->next != NULL){
+			aux = aux->next;
+		}
+		aux->next = nuevo;
+	}
+}
+		
+		
+	
+	
 /* print */
 
 void printSet(Tdata A){
@@ -159,6 +180,45 @@ void printSet(Tdata A){
     printf(" }");
 }
 
+	
+	
+	
+void printList(Tdata A){
+	if(A == NULL){
+		printf("[]");
+		return;
+	}
+	
+	printf("[ ");
+	
+	Tdata aux = A;
+	
+	while(aux != NULL){
+		
+		if(aux->data != NULL){
+			
+			if(aux->data->nodeType == STR){
+				print_string(aux->data->string);
+			}
+			
+			else if(aux->data->nodeType == SET){
+				printSet(aux->data);  
+			}
+			
+			else if(aux->data->nodeType == LIST){
+				printList(aux->data);
+			}
+			
+			if(aux->next != NULL)
+					printf(", ");
+		}
+		
+		aux = aux->next;
+	}
+	
+	printf(" ]");
+}	
+	
 /* ====== MAIN ====== */
 
 int main(){
@@ -177,8 +237,15 @@ int main(){
     append_set(&A, s1);
     append_set(&A, s2);
 
-
-    append_list(&l, s1);    
+	append_list(&l, s1);
+	append_list(&l, s1);
+	append_list(&l, s2);
+	
+	
+	printf("L = ");
+	printList(l);
+	
+	//append_list(&l, s1);    
 
     /* B = {"palabra", {A}} */
     Tdata s3 = create_str_ast();
@@ -187,13 +254,23 @@ int main(){
     append_set(&B, s3);
     append_set(&B, A);   // 
 
+	
+	printf("\n");
+	
     printf("A = ");
     printSet(A);
 
-    printf("\nB = ");
-    printSet(B);
+    //printf("\nB = ");
+    //printSet(B);
 
     printf("\n");
-
+	
+	append_list(&l, A);
+	
+	
+	printf("\n");
+	
+	printf("L = ");
+	printList(l);
     return 0;
 }
