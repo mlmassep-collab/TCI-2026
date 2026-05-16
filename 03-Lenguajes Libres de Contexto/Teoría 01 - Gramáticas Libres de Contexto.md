@@ -72,3 +72,29 @@ Contiene las siguientes formas sentenciales:
 * $S$ es una forma sentencial *inicial*
 * $aSb$, $aaSbb$ son formas sentenciales *intermedias*
 * $aabbb$ es una forma sentencial *terminal* (cadena en el lenguaje)
+
+## Derivación
+
+### Derivación en un paso:  
+
+Si la producción ${A \rightarrow \beta}$ está en ${P}$ (el conjunto de producciones), y además ${\alpha}$ y ${\gamma}$ son cadenas de ${(N \cup T)^*}$ (es decir, secuencias de símbolos terminales y no terminales), entonces la cadena ${\alpha A \gamma}$ **deriva en un paso** a ${\alpha \beta \gamma}$, lo cual se denota:
+
+$${
+\alpha A \gamma \Rightarrow \alpha \beta \gamma
+}$$
+
+EJEMPLO:
+
+Supongamos que se tiene la producción:
+
+$$
+A \rightarrow ab
+$$
+
+Y una cadena:
+
+$$
+bbAbb \Rightarrow bbabbb
+$$
+
+Esto es una **derivación en un paso** porque se sustituyó ${A}$ por ${ab}$, usando la producción dada.
