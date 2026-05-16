@@ -133,3 +133,26 @@ $$
 S \Rightarrow^* aab
 $$
 
+## Árbol de Derivación
+Sea $G = (N, T, S, P)$ una gramática libre de contexto. Un **árbol es un árbol de derivación** si cumple con las siguientes características:
+
+1. **Etiquetas de vértices:**
+   Todo vértice tiene una etiqueta que pertenece a $N \cup T$,
+   es decir, es un **símbolo no terminal o terminal**.
+
+2. **Raíz:**
+   La etiqueta de la raíz es el **símbolo inicial** $S$.
+
+3. **Nodos interiores:**
+   Si un nodo es interior (es decir, tiene hijos) y su etiqueta es ${A}$, entonces ${A \in N}$
+   (solo los **no terminales** pueden expandirse).
+
+4. **Reglas de producción:**
+   Si un nodo con etiqueta ${A}$ tiene hijos con etiquetas ${X_{1}, X_{2}, \dots, X_{m}}$, entonces debe existir una producción:
+
+   $${
+   A \rightarrow X_{1} X_{2} \dots X_{m} \in P
+   }$$
+
+5. **Símbolo ${\varepsilon}$:**
+   Si un vértice tiene como etiqueta ${\varepsilon}$, entonces: Es una **hoja** y es el **único hijo** de su padre
