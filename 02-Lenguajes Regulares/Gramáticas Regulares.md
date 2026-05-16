@@ -194,3 +194,74 @@ donde:
 
 * $\Rightarrow^*$ significa **derivación en cero o más pasos**.
 * $w$ es una cadena formada **solo por símbolos terminales** del alfabeto $\Sigma$.
+  
+## Relación entre Gramáticas Regulares y Autómatas
+
+**Teorema: Conversión de GR a AF**
+
+Sea $G = (N, T, P, S)$  una **gramática regular**  ${\Rightarrow \exists A = (Q, \Sigma, \delta, q_0, F)}$ un **Autómata Finito** tal que ${L(G)=L(A)}$.
+
+ALGORITMO:
+
+1. $\Sigma=T$
+2. $Q=N$
+3. $q_{0}=S$.
+4. $\delta(R_{i},a) =$ { $R_{j} \in N | R_{i} \rightarrow a R_{j}, \forall R_{i} \in N, \forall a \in T$ }
+5. $F=$ { $Q_{i} \in N | R_{i} \rightarrow \varepsilon$ }
+
+
+EJEMPLO: $G = (\{S, A\}, \{a, b\}, P, S)$
+
+Con el conjunto P formado con las siguientes producciones:
+
+$$
+\begin{aligned}
+S &\rightarrow aA \\
+A &\rightarrow bS \mid \varepsilon
+\end{aligned}
+$$
+
+Construcción del AF:
+
+1. $\Sigma = ${ $a, b$ }
+2. $N=$ { $S, A$ }
+3. $q_{0}=S$
+4. Transiciones: $\delta(S, a) = A$ y $\delta(A, b) = S$
+5. $F=$ { $A$ }
+
+**Teorema: Conversión de AF a GR**
+
+Sea $A = (Q, \Sigma, \delta, q_0, F)$  una **Autómata Finito** $\Rightarrow \exists \,\, G = (N, T, P, S)$ una **Gramática Regular** tal que $L(A)=L(G)$.
+
+ALGORITMO:
+
+1. $T= \Sigma$
+2. $N=Q$
+3. $S=q_{0}$
+4. $\forall R_{i},R_{j} \in Q, \forall a \in \Sigma | \delta(R_{i},a) = R_{j} \Rightarrow R_{i} \rightarrow aR_{j}$
+5. $\forall R_{i} \in Q | R_{i} \in F \Rightarrow R_{i} \rightarrow \varepsilon$
+
+EJEMPLO: Dado el AF definido como sigue
+
+$Q=$ { $q_0, q_1$ }, $\Sigma=$ { $a, b$ }, $F=$ { $q_{1}$ }
+
+Transiciones:
+
+$\delta(q_0, a) = q_1$
+
+$\delta(q_1, b) = q_1$
+
+Gramática equivalente:
+
+$N=$ { $q_0, q_1$ },  $\Sigma=$ { $a, b$ } , $S = q_{0}$
+
+Producciones:
+
+```math
+\begin{aligned}
+q_{0} &\rightarrow a q_{1} \\
+q_{1} &\rightarrow b q_{1} \mid \varepsilon
+\end{aligned}
+```
+
+Esta GR genera el lenguaje $L=$ { $a b^*$ }
