@@ -98,3 +98,38 @@ bbAbb \Rightarrow bbabbb
 $$
 
 Esto es una **derivación en un paso** porque se sustituyó ${A}$ por ${ab}$, usando la producción dada.
+
+### Derivación en más de un paso
+
+Supongamos que la secuencia de cadenas $\alpha_1, \alpha_2, \dots, \alpha_m$ son **formas sentenciales** de una gramática $G$, con $m \geq 1$, y además:
+
+$$
+\alpha_1 \Rightarrow \alpha_2, \quad \alpha_2 \Rightarrow \alpha_3, \quad \dots, \quad \alpha_{m-1} \Rightarrow \alpha_m
+$$
+
+Entonces se dice que:
+
+$$
+\alpha_1 \Rightarrow^* \alpha_m
+$$
+
+Es decir, **$\alpha_1$ deriva en muchos pasos** en $\alpha_m$.
+
+EJEMPLO: Sea la gramática:
+
+$$
+S \rightarrow aS \mid b
+$$
+
+Derivación:
+
+$$
+S \Rightarrow aS \Rightarrow aaS \Rightarrow aab
+$$
+
+Entonces:
+
+$$
+S \Rightarrow^* aab
+$$
+
