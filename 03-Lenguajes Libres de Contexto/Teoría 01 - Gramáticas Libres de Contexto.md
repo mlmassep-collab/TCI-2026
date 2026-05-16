@@ -1,4 +1,4 @@
-## Gramáticas Libres de Contexto
+# Gramáticas Libres de Contexto
 Una **Gramática Libre de Contexto (GLC)** es una gramática $G = (N, T, P, S)$ en la que todas las **producciones** en $P$ son de una de las siguiente forma:
 
 $${
@@ -34,3 +34,41 @@ Lenguajes Regulares ⊂ Lenguajes Libres de Contexto
 Los RHS de las producciones de las Gramáticas Regulares imponen más restricciones que los de las Gramáticas Libres de Contexto. En las GR, el lado derecho de una producción puede estar formado únicamente por un terminal seguido opcionalmente de una variable sintáctica (o solo por un terminal). En cambio, en las GLC el RHS puede consistir en cualquier combinación de terminales y variables sintácticas, sin restricciones adicionales sobre su forma. 
 
 En general, cuanto mayores son las restricciones impuestas sobre la forma de las producciones, menor es la potencia expresiva de la gramática y, por lo tanto, más reducida es la clase de lenguajes que puede generar.
+
+## Forma Sentencial
+Una **forma sentencial** en una gramática formal (ya sea GR o GLC) es **cualquier cadena de símbolos** que puede obtenerse a partir del **símbolo inicial** mediante una secuencia de **derivaciones**, y que puede contener **terminales, no terminales o ambos**.
+
+Definición formal:
+
+Dada una gramática $G = (N, T, P, S)$, una **forma sentencial** es **una cadena** $\alpha \in (N \cup T)^*$ tal que:
+
+$$
+S \Rightarrow^* \alpha
+$$
+
+donde:
+
+* $S$ es el símbolo inicial,
+* $\Rightarrow^*$ representa una derivación en cero o más pasos,
+* $\alpha$ puede contener símbolos terminales y/o no terminales.
+
+EJEMPLO: Sea una GLC con las siguientes producciones:
+
+$$
+\begin{aligned}
+S &\rightarrow aSb \\
+S &\rightarrow \varepsilon
+\end{aligned}
+$$
+
+La derivación de la cadena ${aabb}$:
+
+$$
+S \Rightarrow aSb \Rightarrow aaSbb \Rightarrow aabbb
+$$
+
+Contiene las siguientes formas sentenciales:
+
+* $S$ es una forma sentencial *inicial*
+* $aSb$, $aaSbb$ son formas sentenciales *intermedias*
+* $aabbb$ es una forma sentencial *terminal* (cadena en el lenguaje)
