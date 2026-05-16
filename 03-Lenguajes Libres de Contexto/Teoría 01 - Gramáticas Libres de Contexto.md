@@ -26,3 +26,11 @@ Este GLC genera el lenguaje: $L(G) =$ { $a^n b^n \mid n \geq 0$ }
 
 Porque las reglas pueden aplicarse **sin importar el contexto** en el que aparezca el no terminal.
 Por ejemplo, si tienes $A \rightarrow x$, puedes reemplazar $A$ por $x$ **en cualquier lugar** donde aparezca $A$, sin importar lo que haya antes o después.
+
+IMPORTANTE: 
+```text id="gmlc4x"
+Lenguajes Regulares ⊂ Lenguajes Libres de Contexto
+```
+Los RHS de las producciones de las Gramáticas Regulares imponen más restricciones que los de las Gramáticas Libres de Contexto. En las GR, el lado derecho de una producción puede estar formado únicamente por un terminal seguido opcionalmente de una variable sintáctica (o solo por un terminal). En cambio, en las GLC el RHS puede consistir en cualquier combinación de terminales y variables sintácticas, sin restricciones adicionales sobre su forma. 
+
+En general, cuanto mayores son las restricciones impuestas sobre la forma de las producciones, menor es la potencia expresiva de la gramática y, por lo tanto, más reducida es la clase de lenguajes que puede generar.
