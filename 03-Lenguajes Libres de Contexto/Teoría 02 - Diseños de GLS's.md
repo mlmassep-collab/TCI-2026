@@ -51,3 +51,46 @@ Para adaptarla al lenguaje $L =$ { $a^n b^m \mid n > m$ }, necesitamos modificar
 ${S \rightarrow aSb \mid aA}$
 
 ${S \rightarrow aA \mid \varepsilon}$
+
+## 2. Unión de GLC's
+
+**Objetivo**: Diseñar una gramática que genere el lenguaje
+
+<p align="center">
+  $L =$ { $a^n b^m \mid n \ne m$ }
+</p>
+
+**Idea clave**: Unión de lenguajes
+
+Se observa que el lenguaje puede expresarse como la **unión** de dos subconjuntos:
+
+* $L_1 =$ { $a^n b^m \mid n < m$ }
+* $L_2 =$ { $a^n b^m \mid n > m$ }
+
+Entonces:
+
+$$
+L = L_1 \cup L_2
+$$
+
+**Gramáticas para $L_1$ y $L_2$**
+
+* Para $L_1$ (más ${b}$ que ${a}$): $S_1 \rightarrow aS_1b \mid aS_1 \mid a$
+
+* Para $L_2$ (más ${a}$ que ${b}$): $S_2 \rightarrow aS_2b \mid bS_2 \mid b$
+
+**Gramática para ${L}$**
+
+Para obtener una GLC que genere $L =$ { $a^n b^m \mid n \ne m$ }, se puede definir una nueva variable inicial:
+
+${
+S \rightarrow S_1 \mid S_2
+}$
+
+${
+S_{1} \rightarrow aS_{1}b \mid aS_{1} \mid a
+}$
+
+${
+S_{2} \rightarrow aS_{2}b \mid bS_{2} \mid b
+}$
