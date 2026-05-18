@@ -94,3 +94,50 @@ S_{1} \rightarrow aS_{1}b \mid aS_{1} \mid a
 ${
 S_{2} \rightarrow aS_{2}b \mid bS_{2} \mid b
 }$
+
+## 3. Mezcla de GLC's
+
+**Objetivo**: Diseñar una gramática que genere el lenguaje
+
+<p align="center">
+$L = ${ $a^n b^m \mid n \le m \le 2n$ }
+</p>
+
+Este lenguaje representa las cadenas donde el número de ${b's}$ está entre ${n}$ (igual que ${a's}$) y el **doble de** ${n}$. 
+
+Ejemplos: ${aabb}$, ${aabbbb}$, ${aabbb}$.
+
+**Estrategia:** Se mezclan dos gramáticas:
+
+* $L_1 =$ { $a^n b^m \mid n = m$ } $\quad \Rightarrow \quad S \rightarrow aSb \mid \varepsilon$
+* $L_2 =$ { $a^n b^m \mid m = 2n$ } $\quad \Rightarrow \quad S \rightarrow aSbb \mid \varepsilon$
+
+**Gramática resultante:**
+
+$$
+S \rightarrow aSb \mid aSbb \mid \varepsilon
+$$
+
+Esta gramática permite generar cualquier combinación válida donde el número de ${b's}$ esté entre ${n}$ y ${2n}$, como se deseaba.
+
+OTRO EJEMPLO: $L =$ { $a^n b^m \mid 2n \le m \le 5n$ }
+
+Tomamos las GLC de los extremos:
+
+* $L_1 =$ { $a^n b^m \mid m = 2n$ } $\quad \Rightarrow \quad S \rightarrow aSbb \mid \varepsilon$
+  
+* $L_2 =$ { $a^n b^m \mid m = 5n$ } $\quad \Rightarrow \quad S \rightarrow aSbbbbb \mid \varepsilon$
+
+Se obtiene:
+
+${
+S \rightarrow aSbb \mid aSbbbbb \mid \varepsilon
+}$
+
+Además hay que considerar las ${b's}$ adicionales para todas las posibilidades entre ${2n}$ y ${5n}$. 
+
+Usando adaptación:
+
+$S \rightarrow aSBbb \mid aSbbbbb \mid \varepsilon$
+
+$B \rightarrow b \mid bb \mid \varepsilon$
