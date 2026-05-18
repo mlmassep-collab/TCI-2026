@@ -1,3 +1,5 @@
+# Lenguajes Libres de Contexto 
+
 Los **lenguajes libres de contexto** (LLC) son una clase fundamental dentro de la teoría de lenguajes formales, rama de la Teoría de lenguajes formales. Estos lenguajes se utilizan para describir estructuras jerárquicas o anidadas, como expresiones aritméticas, paréntesis balanceados o bloques sintácticos en lenguajes de programación, que no pueden ser capturadas por lenguajes regulares.
 
 Una forma de definirlos es mediante **gramáticas libres de contexto**, en las que cada regla de producción reemplaza un único símbolo no terminal por una cadena de símbolos terminales y/o no terminales. Este tipo de reglas permite generar estructuras recursivas, lo que resulta esencial para modelar la sintaxis de muchos lenguajes formales y de programación.
