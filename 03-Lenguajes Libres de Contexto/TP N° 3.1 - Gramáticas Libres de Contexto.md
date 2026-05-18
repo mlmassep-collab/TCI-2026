@@ -15,7 +15,6 @@ Para cada una:
 > > - Símbolo terminal inicial.
 > > - Estructuras repetitivas.
 > > - Balanceo entre símbolos.
-> > - Uso de paréntesis.
 > > - Concatenaciones.
 > > - Restricciones aparentes sobre las cadenas generadas.
 >
