@@ -14,4 +14,3 @@ La aceptación de una cadena por un autómata de pila puede darse de dos maneras
 Ambas formas de aceptación son equivalentes en cuanto al poder expresivo del modelo.
 
 Finalmente, una propiedad central de esta teoría es que los lenguajes libres de contexto coinciden exactamente con aquellos que pueden ser generados por gramáticas libres de contexto y, al mismo tiempo, reconocidos por autómatas de pila. Esta equivalencia los sitúa dentro de la Jerarquía de Chomsky, entre los lenguajes regulares y los lenguajes más generales como los sensibles al contexto.
-
