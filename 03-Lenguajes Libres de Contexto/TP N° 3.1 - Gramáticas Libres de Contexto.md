@@ -8,19 +8,23 @@
 
 Para cada una:
 
-> a - Genere manualmente al menos 10 cadenas distintas pertenecientes al lenguaje.
+a - Genere manualmente al menos 10 cadenas distintas pertenecientes al lenguaje.
+
+b - Clasifique los patrones observados:
+
+> Símbolo terminal inicial.
+> 
+> Estructuras repetitivas.
 >
-> b - Clasifique los patrones observados:
+> Balanceo entre símbolos.
 >
-> > - Símbolo terminal inicial.
-> > - Estructuras repetitivas.
-> > - Balanceo entre símbolos.
-> > - Concatenaciones.
-> > - Restricciones aparentes sobre las cadenas generadas.
+> Concatenaciones.
 >
-> c - Proponga una descripción informal del lenguaje generado.
->
-> d - Realice el mini-desafío de programación para verificar experimentalmente su hipótesis.
+> Restricciones aparentes sobre las cadenas generadas.
+
+c - Proponga una descripción informal del lenguaje generado.
+
+d - Realice el mini-desafío de programación para verificar experimentalmente su hipótesis.
 
 
 ### Mini-desafío 1:
