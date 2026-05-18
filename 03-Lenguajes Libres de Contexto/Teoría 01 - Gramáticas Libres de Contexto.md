@@ -165,7 +165,8 @@ $S \Rightarrow^* \alpha$ ⟺ existe un árbol de derivación con raíz $S$ que p
 **Derivación por izquierda/derecha**:
 En cada paso de derivación se toma **la variable más a la izquierda o más a la derecha** de la forma sentencial para ser reemplazada.
 
-## AMBIGUEDAD
+## Ambigüedad
+
 Una GLC es ambigua cuando posee para al menos una cadena ${w}$ de ${L}$, al menos dos derivaciones por izquierda distintas o al menos dos derivaciones por derecha distintas.
 
 En otras palabras, una gramática es ambigua si existe alguna cadena del lenguaje generado por la gramática que puede tener más de un árbol de derivación (ya sea por izquierda o por derecha), lo que implica múltiples formas de interpretar esa cadena.
