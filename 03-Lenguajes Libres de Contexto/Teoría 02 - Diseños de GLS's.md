@@ -141,3 +141,36 @@ Usando adaptación:
 $S \rightarrow aSBbb \mid aSbbbbb \mid \varepsilon$
 
 $B \rightarrow b \mid bb \mid \varepsilon$
+
+## 4. Concatenación de GLC's
+
+**Objetivo**: Diseñar una gramática que genere el lenguaje
+
+$${
+L = \{ a^n b^m \mid n \ge m \}
+}$$
+
+
+Para lograr esto, se propone una **concatenación de GLC** a partir de dos lenguajes auxiliares:
+
+* $L_1 = \{ a^n \mid n \in \mathbb{N} \}$, generado por: ${S_{1} \rightarrow aS_{1} \mid \varepsilon}$
+
+* $L_2 = \{ a^n \mid n=m \}$, generado por: ${S_{2} \rightarrow aS_{2}b \mid \varepsilon}$
+
+**Estrategia:** Para generar cadenas donde **hay más** ${a's}$ **que** ${b's}$, es decir, ${n > m}$, se concatenan dos lenguajes:
+
+* Primero, un número arbitrario de ${a's}$ (${L_{1}}$), y
+* Luego, una secuencia equilibrada de ${a's}$ y ${b's}$ (${L_{2}}$), de modo que la cantidad total de $a's$ supera la de $b's$.
+
+**Resultado Final:** Así, la gramática completa es:
+
+${
+S \rightarrow S_{1}S_{2}
+}$
+
+Con:
+
+${
+S_{1} \rightarrow aS_{1} \mid \varepsilon}$
+
+${S_{2} \rightarrow aS_{2}b \mid \varepsilon}$
