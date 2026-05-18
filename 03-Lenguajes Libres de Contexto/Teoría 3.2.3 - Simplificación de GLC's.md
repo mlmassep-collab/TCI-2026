@@ -1,4 +1,6 @@
-# Símbolos útiles e inútiles
+# Simplificación de Gramáticas Libres de Contexto
+
+## Símbolos útiles e inútiles
 
 Dada una GLC $G = (V, T, S, P)$:
 
