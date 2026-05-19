@@ -1,4 +1,4 @@
-# Trabajo Práctico Nº 3.1 – Gramáticas Libres de Contexto
+# Trabajo Práctico Nº 3.1 – Diseño de Gramáticas Libres de Contexto
 
 ## Actividad 1 - Exploración Experimental de Gramáticas Libres de Contexto
 
