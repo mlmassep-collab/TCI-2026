@@ -110,3 +110,24 @@ $\text{B.4} \quad L =$ { $a^n b^m \mid 2n \leq m \leq 3n$ }
 $\text{C.1} \quad L =$ { $a^n b^m \mid n \neq 2m$ }
 
 $\text{C.2} \quad L =$ { $w \in \{a,b\}^* \mid n_a(w) \neq n_b(w)$ }
+
+### Mini-desafío de programación 2
+
+Utilice el generador de cadenas implementado en la Actividad 1 para probar las gramáticas diseñadas en este ejercicio.
+
+Para cada gramática:
+
+a) $\quad$ Represente la GLC utilizando la estructura de datos definida anteriormente.
+
+b) $\quad$ Genere automáticamente cadenas derivables hasta cierta profundidad.
+
+c) $\quad$ Compare las cadenas obtenidas con las derivaciones realizadas manualmente
+
+d) $\quad$ Analice experimentalmente:
+> ¿la gramática parece generar únicamente cadenas válidas?
+>
+> ¿se derivan cadenas inesperadas?
+> 
+> ¿el lenguaje generado parece incompleto?
+> 
+> ¿aparecen patrones no previstos inicialmente?
