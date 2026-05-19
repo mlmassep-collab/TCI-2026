@@ -74,7 +74,9 @@ a) $\quad$ Analice la estructura del lenguaje:
 >
 > ¿Qué mantiene el balance o la restricción del lenguaje?
 
-b) $\quad$ Construya una Gramática Libre de Contexto que genere el lenguaje. Use las estrategia de diseño propuestas por Brena.
+b) $\quad$ Construya una Gramática Libre de Contexto que genere el lenguaje.
+
+**Recomendación:** Aplique las estrategias de diseño desarrolladas en la teoría (Brena). Analice especialmente:
 
 c) $\quad$ Con cada GLC realice para dos cadenas distintas una derivación por izquierda y una derivación por derecha,
   
