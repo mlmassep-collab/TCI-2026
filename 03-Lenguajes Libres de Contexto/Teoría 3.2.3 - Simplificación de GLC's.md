@@ -103,7 +103,7 @@ El método consiste en determinar para cada variable ${A}$ si ${A \stackrel{*}{\
 Si ${L = L(G)}$ para alguna GLC ${G = (V, T, P, S)}$, entonces **${L - \{ \varepsilon \}}$** es el lenguaje de una GLC ${G'}$ que no tiene símbolos inútiles ni producciones ${\varepsilon}$.
 
 Algoritmo:
-Podemos determinar los símbolos anulables de ${G}$ a través del siguiente algoritmo iterativo. Representamos la sproducciones como una lista de dos elementos, en el que la primer componene es la variable sintáctica del LHS y la segunda componente es un conjunto compuesto por los RHS de la variable. 
+Podemos determinar los símbolos anulables de ${G}$ a través del siguiente algoritmo iterativo. Representamos las producciones como una lista de dos elementos, en el que la primer componene es la variable sintáctica del LHS y la segunda componente es un conjunto compuesto por los RHS de la variable. 
 
 ```text
 quitar_pe(G):
