@@ -90,3 +90,176 @@ lema4(G):
 7. Contestar:
    G₁ = (nuevoN, nuevoT, S, nuevoP)
 ```
+## Quitar Producciones Epsilon
+
+Pondremos ahora nuestra atención a la eliminación de producciones de la forma ${A \rightarrow \varepsilon}$, a las que llamaremos **producciones $\varepsilon$**. Seguramente si ${\varepsilon}$ está en $L(G)$, no podemos eliminar todas las producciones ${\varepsilon}$ de ${G}$, pero si no está en ${L(G)}$, se hace evidente que podemos eliminarlas.
+
+El método consiste en determinar para cada variable ${A}$ si ${A \stackrel{*}{\Rightarrow} \varepsilon}$. Si esto sucede, decimos que **A es anulable**. Podemos sustituir cada producción ${B \rightarrow X_{1}\, X_{2} \dots X_{n}}$ por todas las producciones formadas mediante la eliminación de algún subconjunto de aquellas ${X_{i}}$ que son anulables, pero no incluimos ${B \rightarrow \varepsilon}$, aún si **todas** las ${X_i}$ son anulables.
+
+### Teorema 
+
+Si ${L = L(G)}$ para alguna GLC ${G = (V, T, P, S)}$, entonces **${L - \{ \varepsilon \}}$** es el lenguaje de una GLC ${G'}$ que no tiene símbolos inútiles ni producciones ${\varepsilon}$.
+
+Algoritmo:
+Podemos determinar los símbolos anulables de ${G}$ a través del siguiente algoritmo iterativo. Representamos la sproducciones como una lista de dos elementos, en el que la primer componene es la variable sintáctica del LHS y la segunda componente es un conjunto compuesto por los RHS de la variable. 
+
+```text
+quitar_pe(G):
+1. Sea G = (N,T,S,P)
+2. VA = {} // variables anulables
+3. Para todo A en N tal que [A,{eps}] es una producción:
+     VA = VA union {A}
+4. Para todo A en N:
+     Si [A,{alpha}] pertenece a P y todos los símbolos de alpha están VA entonces:
+       VA = VA union {B}
+
+//El conjunto de producciones de P se construyen de la siguiente manera.
+5. nuevoP={}
+6. Para toda [A, {X_1, X_2,..., X_n}] en P: 
+     nuevoP = nuevoP union [A, {alpha_1, alpha_2,...,alpha_n}] donde 
+        1. Si X_i no pertenece a VA entonces alpha_i = X_i;  //dejar la prodcción como está
+        2. Sino alpha_i = X_i o alpha_i = eps;               //anular de a una variable a la vez 
+        3. No todas las alpha_i son eps                      //no anular todas las variables al mismo tiempo
+```
+
+Explicación paso a paso:
+
+**1. Determinación de símbolos anulables:**
+
+* Se identifican variables que derivan a ${\varepsilon}$ directamente.
+* Luego, iterativamente se detectan otras variables que pueden derivar a ${\varepsilon}$ si todos los símbolos en su lado derecho ya se han identificado como anulables.
+
+**2. Construcción de nuevas producciones (sin ${\varepsilon}$):**
+
+* Para cada producción ${A \rightarrow X_{1} X_{2} \dots X_{n}}$, se generan nuevas producciones eliminando posibles combinaciones de los símbolos anulables, sin eliminar todos a la vez (para evitar introducir nuevamente ${\varepsilon}$).
+* Esto genera múltiples producciones que cubren todas las combinaciones posibles sin la producción vacía.
+
+## Ejemplo 1
+
+${S \rightarrow AB | a}$
+
+${A \rightarrow aA | \varepsilon}$
+
+${B \rightarrow \varepsilon | b}$
+
+Paso 1: Identificar símbolos anulables
+
+* ${A \rightarrow \varepsilon \Rightarrow  A}$ es anulable
+* ${B \rightarrow \varepsilon \Rightarrow  B}$  es anulable
+
+Luego, Anulables = ${\{A, B\}}$
+
+Paso 2: Generar nuevas producciones eliminando combinaciones de anulables**
+
+Aplicamos el procedimiento descrito en el texto para construir ${P'}$, es decir, todas las combinaciones posibles al eliminar A y B, **sin que todos los símbolos desaparezcan a la vez** (para evitar agregar una producción ε no deseada).
+
+Producción: ${S \rightarrow AB}$
+
+${A}$ y ${B}$ son anulables. Entonces las combinaciones válidas son:
+
+* ${S \rightarrow AB}$ (original)
+* ${S \rightarrow A}$  (eliminamos B)
+* ${S \rightarrow B}$  (eliminamos A)
+
+No agregamos ${S \rightarrow \varepsilon}$ (porque el objetivo es eliminar ${\varepsilon}$ -producciones).
+
+Producción: ${A \rightarrow a}$
+
+Se mantiene sin cambios.
+
+Producción: ${A \rightarrow aA}$
+
+${A}$ es anulable. Entonces:
+
+* ${A \rightarrow aA}$  (original)
+* ${A \rightarrow a}$   (eliminamos A de la derecha)
+
+Producción: ${B \rightarrow b}$
+
+Se mantiene sin cambios.
+
+**Nueva gramática sin producciones ε:**
+
+${S \rightarrow AB | A | B | a}$
+
+${A \rightarrow aA | a}$
+
+${B \rightarrow b}$
+
+## Ejemplo 2
+
+${S \rightarrow aA | bB | C}$
+
+${A \rightarrow aA | \varepsilon}$
+
+${B \rightarrow bBCa | A}$
+
+${C \rightarrow B}$
+
+Paso 1: Identificar variables anulables
+
+* ${A \rightarrow \varepsilon \Rightarrow A}$  es anulable
+* ${B \rightarrow A}$, y como ${A}$ es anulable ${\Rightarrow B}$ es anulable (porque ${B}$ deriva en ${A}$, que deriva en ${\varepsilon}$)
+* ${C \rightarrow B}$, y ${B}$ es anulable ${\Rightarrow C}$ es anulable
+
+Entonces Anulables = ${ \{ A, B, C \}}$
+
+Paso 2: Generar nuevas producciones eliminando combinaciones de anulables
+
+Producción: ${S \rightarrow aA}$
+
+A es anulable. Entonces las combinaciones válidas son:
+
+* ${S \rightarrow aA}$ (Original)
+* ${S \rightarrow a}$ (Anulo A)
+
+Producción: ${S \rightarrow C}$
+
+C es anulable. Entonces las combinaciones válidas son:
+
+* ${S \rightarrow C}$ (Original)
+* **NO se agrega** ${S \rightarrow \varepsilon}$
+
+Producción: ${A \rightarrow aA}$
+
+A es anulable. Entonces las combinaciones válidas son:
+
+* ${A \rightarrow aA}$ (Original)
+* ${A \rightarrow a}$ (Anulo A)
+
+Producción: ${A \rightarrow \varepsilon}$
+
+Esta se elimina en la nueva gramática.
+
+Producción: ${B \rightarrow bBCa}$
+
+B y C son anulables. Entonces las combinaciones válidas son:
+
+* ${B \rightarrow bBCa}$ (Original)
+* ${B \rightarrow bCa}$ (Anulo B)
+* ${B \rightarrow bBa}$ (Anulo C)
+* ${B \rightarrow ba}$ (Anulo ambas)
+
+Producción: ${B \rightarrow A}$
+
+A es anulable. Entonces las combinaciones válidas son:
+
+* ${B \rightarrow A}$
+* **NO se agrega** ${B \rightarrow \varepsilon}$
+
+Producción: ${C \rightarrow B}$
+
+B es anulable. Entonces las combinaciones válidas son:
+
+* ${C \rightarrow B}$
+* **NO se agrega** ${C \rightarrow \varepsilon}$
+
+**Nueva gramática sin producciones ε:**
+
+${S \rightarrow aA | bB | C}$
+
+${A \rightarrow aA | a}$
+
+${B \rightarrow bBCa | bCa | bBa | ba | A}$
+
+${C \rightarrow B}$
