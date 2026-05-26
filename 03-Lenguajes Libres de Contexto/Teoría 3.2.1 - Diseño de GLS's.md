@@ -50,7 +50,7 @@ Para adaptarla al lenguaje $L =$ { $a^n b^m \mid n > m$ }, necesitamos modificar
 
 ${S \rightarrow aSb \mid aA}$
 
-${S \rightarrow aA \mid \varepsilon}$
+${A \rightarrow aA \mid \varepsilon}$
 
 ## 2. Unión de GLC's
 
