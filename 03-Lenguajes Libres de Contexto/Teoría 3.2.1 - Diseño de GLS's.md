@@ -91,17 +91,15 @@ $$
 
 Para obtener una GLC que genere $L =$ { $a^n b^m \mid n \ne m$ }, se puede definir una nueva variable inicial:
 
-${
-S \rightarrow S_1 \mid S_2
-}$
+$S \rightarrow S_1 \mid S_2$
 
-${
-S_{1} \rightarrow aS_{1}b \mid aS_{1} \mid a
-}$
+$S_1 \rightarrow aS_1b \mid bB$
 
-${
-S_{2} \rightarrow aS_{2}b \mid bS_{2} \mid b
-}$
+$B \rightarrow bB \mid b$
+
+$S_2 \rightarrow aS_2b \mid aA$
+
+$A \rightarrow aA \mid a$
 
 ## 3. Mezcla de GLC's
 
