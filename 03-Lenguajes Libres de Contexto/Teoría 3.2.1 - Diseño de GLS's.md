@@ -75,9 +75,17 @@ $$
 
 **Gramáticas para $L_1$ y $L_2$**
 
-* Para $L_1$ (más ${b}$ que ${a}$): $S_1 \rightarrow aS_1b \mid aS_1 \mid a$
+* Para $L_1$ (más ${b}$ que ${a}$):
 
-* Para $L_2$ (más ${a}$ que ${b}$): $S_2 \rightarrow aS_2b \mid bS_2 \mid b$
+  $S_1 \rightarrow aS_1b \mid bB$
+
+  $B \rightarrow bB \mid b$
+  
+* Para $L_2$ (más ${a}$ que ${b}$): 
+
+  $S_2 \rightarrow aS_2b \mid aA$
+
+  $A \rightarrow aA \mid a$
 
 **Gramática para ${L}$**
 
