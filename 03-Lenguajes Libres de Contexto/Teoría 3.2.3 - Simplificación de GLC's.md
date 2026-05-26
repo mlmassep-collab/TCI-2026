@@ -36,33 +36,35 @@ Para que un símbolo $X$ sea **útil**, **debe cumplir ambos criterios**: ser **
 
 Sea ${G = (N, T, S, P)}$ una GLC, con ${L(G) \neq \emptyset}$, es posible obtener efectivamente una *GLC* ${G_{1} = (N_{1}, T, S, P_{1})}$ a partir de ${G}$ done:
 
-$${\forall A \in N_{1}, \exists w \in T^* \text{ tal que } A \Rightarrow^* w}$$
+${\forall A \in N_{1}, \exists w \in T^* \text{ tal que } A \Rightarrow^* w}$
 
 **Algoritmo:**
 
 ```text
 lema3(G):
 1. Sea G = (N, T, S, P)
-2. viejoN = ∅
-3. nuevoN = { A ∈ N | ∃ A → w, w ∈ T* }
+2. viejoN = {}
+3. nuevoN = { A en N | existe [A,{w}], w ∈ T* }
 4. mientras (viejoN ≠ nuevoN):
     4.1 viejoN = nuevoN
-    4.2 nuevoN = viejoN ∪ { A ∈ N | ∃ A → w, w ∈ (T ∪ viejoN)* }
-5. nuevoP = ∅
-6. Para cada A ∈ nuevoN:
-    6.1 Sea p = A → α₁ | α₂ | ... | αₙ
-    6.2 Para cada αᵢ en p:
-        Si αᵢ ∈ (T ∪ nuevoN)* entonces:
-            nuevoP = nuevoP ∪ { A → αᵢ }
+    4.2 nuevoN = viejoN union { A en N | existe [A,{w}], w en (T ∪ viejoN)* }
+5. nuevoP = {}
+6. Para cada A en nuevoN:
+    6.1 Sea [A,{alpha_1, alpha_2,...,alpha_n}] en P
+    6.2 nuevo_rhs = {}
+    6.3 Para cada alpha_i:
+        Si alpha_i pertenece a (T union nuevoN)* entonces:
+          nuevo_rhs=nuevo_rhs union {alpha_i}
+    6.4 nuevoP = nuevoP union [A, nuevo_rhs]
 7. Contestar:
-   G₁ = (nuevoN, T, S, nuevoP)
+   G_1 = (nuevoN, T, S, nuevoP)
 ```
 
 ## Lema 4: Quitar variables no alcanzables
 
 Sea ${G = (N, T, S, P)}$ una GLC, con ${L(G) \neq \emptyset}$, es posible obtener efectivamente una *GLC* ${G_{1} = (N_{1}, T_{1}, S, P_{1})}$ a partir de ${G}$ donde
 
-$${\forall A \in N_{1}, \exists \alpha, \beta \in (T_{1} \cup N_{1}) ^* \text{ tal que } S \Rightarrow^* \alpha A \beta}$$
+${\forall A \in N_{1}, \exists \alpha, \beta \in (T_{1} \cup N_{1}) ^* \text{ tal que } S \Rightarrow^* \alpha A \beta}$
 
 **Algoritmo:**
 
@@ -70,25 +72,25 @@ $${\forall A \in N_{1}, \exists \alpha, \beta \in (T_{1} \cup N_{1}) ^* \text{ t
 lema4(G):
 1. Sea G = (N, T, S, P)
 2. nuevoN = { S }
-3. viejoN = ∅
+3. viejoN = {}
 4. mientras (viejoN ≠ nuevoN ∨ viejoT ≠ nuevoT):
     4.1 D = nuevoN − viejoN
     4.2 viejoN = nuevoN
     4.3 viejoT = nuevoT
-    4.4 Para todo A ∈ D tal que
-        A → α₁ | α₂ | ... | αₙ:
-        Para todo X, a ∈ αᵢ con
-        X ∈ N y a ∈ T:
-            nuevoN = nuevoN ∪ { X }
-            nuevoT = nuevoT ∪ { a }
-5. nuevoP = ∅
+    4.4 Para todo A en D tal que [A,{alpha_1, alpha_2,...,alpha_n}] está en P
+          Para todo X, a en alpha_i con X en N y a en T:
+              nuevoN = nuevoN union { X }
+              nuevoT = nuevoT union { a }
+5. nuevoP = {}
 6. Para cada A ∈ nuevoN:
-    6.1 Sea p = A → α₁ | α₂ | ... | αₙ
-    6.2 Para cada αᵢ en p:
-        Si αᵢ ∈ (nuevoT ∪ nuevoN)* entonces:
-            nuevoP = nuevoP ∪ { A → αᵢ }
+    6.1 Sea [A,{alpha_1, alpha_2,...,alpha_n}] en P
+    6.2 nuevo_rhs = {}
+    6.3 Para cada alpha_i:
+        Si alpha_i pertence a (nuevoT union nuevoN)* entonces:
+          nuevo_rhs=nuevo_rhs union {alpha_i}
+    6.4 nuevoP = nuevoP union [A, nuevo_rhs]
 7. Contestar:
-   G₁ = (nuevoN, nuevoT, S, nuevoP)
+   G_1 = (nuevoN, nuevoT, S, nuevoP)
 ```
 ## Quitar Producciones Epsilon
 
