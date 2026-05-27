@@ -109,20 +109,32 @@ Podemos determinar los símbolos anulables de ${G}$ a través del siguiente algo
 quitar_pe(G):
 1. Sea G = (N,T,S,P)
 2. VA = {} // variables anulables
+
+//Encontrar variables anulables directas
 3. Para todo A en N tal que [A,{eps}] es una producción:
      VA = VA union {A}
-4. Para todo A en N:
-     Si [A,{alpha}] pertenece a P y todos los símbolos de alpha están VA entonces:
-       VA = VA union {B}
+
+/7Encontrar variables anulables indirectas
+4. cambio=true
+5. Mientras cambio==true
+     cambio=false
+     Para todo A en N:
+        Si [A,{alpha}] pertenece a P y todos los símbolos de alpha están VA entonces:
+           VA = VA union {B}
+           cambio = true
 
 //El conjunto de producciones de P se construyen de la siguiente manera.
-5. nuevoP={}
+5. nuevo_p={}
 6. Para toda [A, {X_1, X_2,..., X_n}] en P: 
-     nuevoP = nuevoP union [A, {alpha_1, alpha_2,...,alpha_n}] donde 
+     nuevo_p = nuevo_p union [A, {alpha_1, alpha_2,...,alpha_n}] donde 
         1. Si X_i no pertenece a VA entonces alpha_i = X_i;  //dejar la prodcción como está
         2. Sino alpha_i = X_i o alpha_i = eps;               //anular de a una variable a la vez 
         3. No todas las alpha_i son eps                      //no anular todas las variables al mismo tiempo
 ```
+7. Eliminar todas las producciones epsilon de nuevo_p
+
+//Resultado final
+8. responder G1 = (N,T,S,nuevo_p)
 
 Explicación paso a paso:
 
