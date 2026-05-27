@@ -315,7 +315,7 @@ quitar_unit(G):
             Para cada B en unitarias(A):
                  nuevas = nuevas union unitarias(B)
             nuevas = nuevas - unitarias(A)
-            Si nuevas ≠ {}:
+            Si nuevas != {}:
                  unitarias(A) =
                      unitarias(A) union nuevas
                  cambio = true
