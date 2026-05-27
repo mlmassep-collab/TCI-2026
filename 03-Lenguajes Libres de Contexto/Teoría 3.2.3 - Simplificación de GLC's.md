@@ -278,7 +278,7 @@ ${B \rightarrow bBCa | bCa | bBa | ba | A}$
 
 ${C \rightarrow B}$
 
-# Quitar producciones unitarias
+## Quitar producciones unitarias
 
 Una producción unitaria es de la forma: ${A \rightarrow  B}$ con ${A,B \in N}$
 
