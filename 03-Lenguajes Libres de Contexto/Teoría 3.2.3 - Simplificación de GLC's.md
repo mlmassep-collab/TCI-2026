@@ -265,3 +265,58 @@ ${A \rightarrow aA | a}$
 ${B \rightarrow bBCa | bCa | bBa | ba | A}$
 
 ${C \rightarrow B}$
+
+# Quitar producciones unitarias
+
+Una producción unitaria es de la forma: ${A \rightarrow  B}$ con ${A,B \in N}$
+
+Como puede se desprende de la definición, **A y B son variables** (no terminales). Estas producciones no agregan información útil y pueden ser eliminadas para simplificar la gramática.
+
+### Teorema
+Cada LLC sin ${\varepsilon}$ está definido por una gramática que no tiene símbolos inútiles, producciones ${\varepsilon}$, o producciones unitarias.
+
+```text
+quitar_unit(G):
+1. Sea G = (N,T,S,P)
+2. no_unitarias = {}
+3. unitarias = {}
+
+//Separar producciones unitarias y no unitarias
+4. Para cada producción p en P:
+     4.1 A = lhs(p)
+     4.2 nuevo_rhs = {}
+     4.3 nuevo_rhs_uni = {}
+     4.4 Para cada alpha en rhs(p):
+            si alpha es una producción unitaria:
+                 nuevo_rhs_uni = nuevo_rhs_uni union {alpha}
+            sino:
+                 nuevo_rhs = nuevo_rhs union {alpha}
+     4.5 no_unitarias(A) = no_unitarias(A) union nuevo_rhs
+     4.6 unitarias(A) = unitarias(A) union nuevo_rhs_uni
+
+//Calcular clausura transitiva unitaria
+5. cambio = true
+6. Mientras cambio == true:
+     6.1 cambio = false
+     6.2 Para cada A en unitarias:
+            nuevas = {}
+            Para cada B en unitarias(A):
+                 nuevas = nuevas union unitarias(B)
+            nuevas = nuevas - unitarias(A)
+            Si nuevas ≠ {}:
+                 unitarias(A) =
+                     unitarias(A) union nuevas
+                 cambio = true
+
+//Construir nueva gramática
+7. nuevo_p = {}
+8. Para cada no terminal A en N:
+     8.1 nuevo_p(A) =
+             nuevo_p(A) union no_unitarias(A)
+     8.2 Para cada B en unitarias(A):
+             nuevo_p(A) =
+                 nuevo_p(A) union no_unitarias(B)
+
+//Resultado final
+9. responder G1 = (N,T,S,nuevo_p)
+```
