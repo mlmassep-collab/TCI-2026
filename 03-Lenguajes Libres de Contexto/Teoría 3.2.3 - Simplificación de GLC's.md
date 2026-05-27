@@ -320,3 +320,52 @@ quitar_unit(G):
 //Resultado final
 9. responder G1 = (N,T,S,nuevo_p)
 ```
+## Ejemplo 1
+
+${S \rightarrow aA | bB}$
+
+${A \rightarrow aA | B | D}$
+
+${B \rightarrow bBCa | C}$
+
+${C \rightarrow abC | ab}$
+
+${D \rightarrow bDa | ba}$
+
+**Paso 1 — Separar producciones unitarias y no unitarias**
+
+no_unitarias =
+{
+$[S,$ { $aA,bB$ } $]$,
+$[A,$ { $aA$ } $]$,
+$[B,$ { $bBCa$ } $]$,
+$[C,$ { $abC,ab$ } $]$,
+$[D,$ { $bDa,ba$ } $]$
+}
+
+unitarias =
+{
+$[A,$ { $B,D$ } $]$,
+$[B,$ { $C$ } $]$
+}
+
+**Paso 2 — Calcular clausura transitiva unitaria**
+
+unitarias =
+{
+$[A,$ { $B,D,C$ } $]$,
+$[B,$ { $C$ } $]$
+}
+
+**Paso 3 — Construir las nuevas producciones**
+
+${S \rightarrow aA \mid bB}$
+
+${A \rightarrow aA \mid bBCa \mid abC \mid ab \mid bDa \mid ba}$
+
+${B \rightarrow bBCa \mid abC \mid ab}$
+
+${C \rightarrow abC \mid ab}$
+
+${D \rightarrow bDa \mid ba}$
+
