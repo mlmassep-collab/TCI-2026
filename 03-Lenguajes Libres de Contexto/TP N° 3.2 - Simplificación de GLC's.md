@@ -34,7 +34,9 @@ G=[
 ```
 
 **Función auxiliar**
-Función que determine si todos los símbolos de una cadena pertenecen a un conjunto dado.
+
+Función que determine si todos los símbolos de una cadena pertenecen a un conjunto dado. Sirve por ejemplo para determinar si una cadena de símbolos está compuesta solo por terminales, o solo por variables sintácticas.
+
 ```python
 #considerar incluir en T el símbolo que se use para epsilon, por ejemplo e
 def is_str(s, T):
