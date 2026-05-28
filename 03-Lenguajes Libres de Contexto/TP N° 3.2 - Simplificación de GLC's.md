@@ -7,7 +7,7 @@ Para cada una de las siguientes gramáticas:
 1. Determinar los símbolos generadores.
 2. Determinar los símbolos alcanzables.
 3. Identificar los símbolos inútiles.
-4. Obtener la gramática simplificada.
+4. Obtener la gramática simplificada con la aplicación del Lema 3 y Lema 4 en ese orden.
 
 | GLC 1                                                                      | GLC 2                                                             | GLC 3                                                                           | GLC 4                                                                               |
 | -------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
@@ -45,6 +45,15 @@ Para cada una de las siguientes gramáticas:
 | -------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | $S \to A \mid b$<br>$A \to B$<br>$B \to C$<br>$C \to c \mid d$ | $S \to A \mid B$<br>$A \to aA \mid a$<br>$B \to C$<br>$C \to D$<br>$D \to d$ | $S \to A \mid b$<br>$A \to B \mid a$<br>$B \to C$<br>$C \to A \mid c$ | $S \to AB \mid C$<br>$A \to aA \mid \varepsilon$<br>$B \to bB \mid b$<br>$C \to D$<br>$D \to d$ |
 
+**IMPORTANTE:**
+
+Al eliminar ε-producciones, se debe preservar el lenguaje generado por la gramática.
+En particular, si el símbolo inicial $S$ es anulable, es decir, si $S \Rightarrow^* \varepsilon$, entonces la producción $S \to \varepsilon$ debe conservarse (o incorporarse explícitamente en la gramática simplificada), ya que el lenguaje original contiene a la cadena vacía.
+
+En cambio, para los demás no terminales, las ε-producciones deben eliminarse durante el proceso de simplificación.
+
+En este trabajo práctico se adoptará la convención habitual de permitir una única ε-producción únicamente para el símbolo inicial, siempre que $\varepsilon \in L(G)$.
+
 ### Mini-desafío de programación 3:
 
 Implementar en un lenguaje de programación un algoritmo que elimine producciones unitarias de una GLC.
@@ -53,9 +62,9 @@ Implementar en un lenguaje de programación un algoritmo que elimine produccione
 
 Para cada una de las siguientes gramáticas:
 
-1. Eliminar símbolos inútiles.
-2. Eliminar producciones ε.
-3. Eliminar producciones unitarias.
+1. Eliminar producciones ε.
+2. Eliminar producciones unitarias.
+3. Eliminar símbolos inútiles (generadores - inalcanzables)
 4. Obtener la gramática completamente simplificada.
 5. Comparar la cantidad de variables y producciones antes y después de la simplificación.
 
