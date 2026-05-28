@@ -2,7 +2,7 @@
 
 ## Símbolos útiles e inútiles
 
-Dada una GLC $G = (V, T, S, P)$:
+Dada una GLC $G = (N, T, S, P)$:
 
 Un **símbolo $X$** (en general una variable no terminal) es **útil** si existe una derivación:
 
