@@ -15,7 +15,67 @@ Para cada una de las siguientes gramáticas:
 
 ### Mini-desafío de programación 1: 
 
-Implementar en python un algoritmo que elimine símbolos inútiles de una GLC.
+**Objetivo**
+
+Implementar los algoritmos de los lemas 3 y 4 de eliminación de símbolos inútiles
+
+**Ejemplo de entrada**
+```python
+#S->aA | bBba
+#A->aaA|a
+#B->abB|abCa|ab
+#C->aCb
+G=[
+    {'S','A','B','C'},
+    {'a','b'},
+    'S',
+    [['S','aA'],['S','bBba'],['A','aaA'],['A','a'],['B','abB'],['B','abCa'],['B','ab'],['C','aCb']]
+]
+```
+
+**Función auxiliar**
+Función que determine si todos los símbolos de una cadena pertenecen a un conjunto dado.
+```python
+#considerar incluir en T el símbolo que se use para epsilon, por ejemplo e
+def is_str(s, T):
+    for c in s:
+        if c not in T:
+            return False
+    return True
+``` 
+**Esqueleto del algoritmo**
+```python
+def lema3(G):
+    N, T, S, P = G
+    viejoN = set()
+    nuevoN = set()
+
+    # Primera pasada: A -> w con w ∈ T*
+    for p in P:
+        #completar
+
+    # Iteración hasta punto fijo
+    while (nuevoN != viejoN):
+        ##compeltar
+
+    #Construcción del nuevo conjunto de producciones
+    nuevoP=[]
+    for p in P:
+        #compeltar
+
+    # Devuelves la gramática modificada
+    G = (nuevoN, T, S, nuevoP)
+    return G
+```
+**Ejeplo de uso**
+```python
+G_1=lema3(G)
+print(G_1)
+```
+**Salida esperada**
+```python
+({'B', 'S', 'A'}, {'a', 'b'}, 'S', [['S', 'aA'], ['S', 'bBba'], ['A', 'aaA'], ['A', 'a'], ['B', 'abB'], ['B', 'ab']])
+```
 
 ## Actividad 2 — Eliminación de producciones ε
 
