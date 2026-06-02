@@ -174,7 +174,7 @@ def quitar_pe(G):
   #detectar variables anulables directas
   for A in N:
     for alpha in P[A]:
-        #completar
+        #COMPLETAR
 
   #detectar variables anulables indirectas
   cambio=True
@@ -182,7 +182,7 @@ def quitar_pe(G):
     cambio=False
     for A in N:
       for alpha in P[A]:
-        #completar
+        #COMPLETAR
 
   #armar nuevas producciones
   nuevoP={}
@@ -194,10 +194,12 @@ def quitar_pe(G):
       if any(symbol in anulable for symbol in alpha):
         #aquí hay que anular de a un símbolo de alpha
 
-        #completar
+        #COMPELTAR
         
       else:
         #aqui ningún símbolo es anulabe, alpha no cambia
+
+        #COMPLETAR
 
   #verificar si el lenguaje contiene 'ε' para agregarlo de nuevo
   if S in VA:
