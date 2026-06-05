@@ -134,7 +134,7 @@ quitar_pe(G):
           //anular de a una variable anulable a la vez
           alpha_i = ''
           Para cada símbolo s en X_i
-          alpha_i = alpha_i . (s o eps)                
+            alpha_i = alpha_i . (s o eps)                
       //si todos los s de X_i son anulables, no anular todas al mismo tiempo
       Si (alpha_i no es epsilon)
         nuevo_p(A).agregar(alpha_i)         
