@@ -140,7 +140,7 @@ quitar_pe(G):
         nuevo_p(A).agregar(alpha_i)         
 
 //Resultado final
-8. responder G1 = (N,T,S,nuevo_p)
+7. responder G1 = (N,T,S,nuevo_p)
 ```
 
 Explicación paso a paso:
