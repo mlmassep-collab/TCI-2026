@@ -138,11 +138,10 @@ quitar_pe(G):
       //si todos los s de X_i son anulables, no anular todas al mismo tiempo
       Si (alpha_i no es epsilon)
         nuevo_p(A).agregar(alpha_i)         
-```
-7. Eliminar todas las producciones epsilon de nuevo_p
 
 //Resultado final
 8. responder G1 = (N,T,S,nuevo_p)
+```
 
 Explicación paso a paso:
 
