@@ -103,7 +103,7 @@ El método consiste en determinar para cada variable ${A}$ si ${A \stackrel{*}{\
 Si ${L = L(G)}$ para alguna GLC ${G = (V, T, P, S)}$, entonces **${L - \{ \varepsilon \}}$** es el lenguaje de una GLC ${G'}$ que no tiene símbolos inútiles ni producciones ${\varepsilon}$.
 
 Algoritmo:
-Podemos determinar los símbolos anulables de ${G}$ a través del siguiente algoritmo iterativo. Representamos las producciones como una lista de dos elementos, en el que la primer componene es la variable sintáctica del LHS y la segunda componente es un conjunto compuesto por los RHS de la variable. 
+Podemos determinar los símbolos anulables de ${G}$ a través del siguiente algoritmo iterativo. Representamos las producciones como una lista de dos elementos, en el que la primera componene es la variable sintáctica del LHS y la segunda componente es un conjunto compuesto por los RHS de la variable. 
 
 ```text
 quitar_pe(G):
@@ -120,16 +120,24 @@ quitar_pe(G):
      cambio=false
      Para todo A en N:
         Si [A,{alpha}] pertenece a P y todos los símbolos de alpha están VA entonces:
-           VA = VA union {B}
+           VA = VA union {A}
            cambio = true
 
 //El conjunto de producciones de P se construyen de la siguiente manera.
 5. nuevo_p={}
 6. Para toda [A, {X_1, X_2,..., X_n}] en P: 
-     nuevo_p = nuevo_p union [A, {alpha_1, alpha_2,...,alpha_n}] donde 
-        1. Si X_i no pertenece a VA entonces alpha_i = X_i;  //dejar la prodcción como está
-        2. Sino alpha_i = X_i o alpha_i = eps;               //anular de a una variable a la vez 
-        3. No todas las alpha_i son eps                      //no anular todas las variables al mismo tiempo
+      nuevo_p(A)={}
+      Si para todo símbolo s en X_i, s no pertenece a VA entonces
+          //dejar la prodcción como está
+          alpha_i = X_i;
+      Sino
+          //anular de a una variable anulable a la vez
+          alpha_i = ''
+          Para cada símbolo s en X_i
+          alpha_i = alpha_i . (s o eps)                
+      //si todos los s de X_i son anulables, no anular todas al mismo tiempo
+      Si (alpha_i no es epsilon)
+        nuevo_p(A).agregar(alpha_i)         
 ```
 7. Eliminar todas las producciones epsilon de nuevo_p
 
