@@ -444,6 +444,17 @@ Con ${q, p_k \in Q}$, ${a \in \Sigma \cup \{\lambda\}}$, ${s \in \Gamma}$ y ${\g
 
 El significado de esta transición es: al leer el símbolo $a$ sobre la cinta de entrada, la unidad de control puede pasar (aleatoriamente) a uno de los estados $p_i$ ${(1 ≤ i ≤ k)}$ y se mueve a la derecha. Sobre la pila hace lo siguiente: borra el símbolo ${s}$ que está en el tope y escribe la cadena ${\gamma_i}$.
 
+### Lenguaje Aceptado 
+
+**Por estados de aceptación:**
+
+$L(M) =$ { $w \in \Sigma^* : \exists (q_0, w, Z_0) \vdash^* (p, \lambda, \beta), p \in F$ }
+
+**Por pila vacía:**
+
+$L(M) =$ { $w \in \Sigma^* : \exists (q_0, w, Z_0) \vdash^* (p, \lambda, \lambda), p \in Q$ }
+
+Es decir, una cadena ${w}$ es aceptada si existe por lo menos un procesamiento de ${w}$ desde la configuración inicial hasta una configuración de aceptación.
 
 
 
