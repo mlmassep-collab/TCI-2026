@@ -231,7 +231,7 @@ $\Delta(q_0, a, Z_0) = (q_1, AZ_0)$
 
 $\Delta(q_1, a, A) = (q_2, AA)$
 
-$\Delta(q_2, a, A) = (q_1, AA)$
+$\Delta(q_2, a, A) = (q_2, AA)$
 
 $\Delta(q_2, b, A) = (q_3, \lambda)$
 
