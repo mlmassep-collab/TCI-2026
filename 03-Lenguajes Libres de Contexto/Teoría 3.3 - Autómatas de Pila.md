@@ -152,7 +152,7 @@ ${\hspace{2cm}}$ * Se cambia el estado a ${q'}$.
 
 Ejemplo: $\Delta(q_1, \lambda, Z_0)= (q_2, AZ_0)$  transición espontánea que deja $Z_0$ en la pila y agrega al tope $A$
 
-Para garantizar el determinismo, $\Delta(q, a, s)$ y $\Delta(q, \lambda, s)$, con $a \in \Sigma$, no pueden estar simultáneamente definidos (de lo contrario el autómata tendría una opción no-determinista).
+Para garantizar el determinismo, $\Delta(q, a, s)$ y $\Delta(q, \lambda, s)$, con $a \in \Sigma$, no pueden estar simultáneamente definidos (de lo contrario el autómata tendría una opción no-determinista de las que se brindarán más detalles en los siguientes apartados de este apunte).
 
 Las transiciones espontáneas en un APD permiten que el autómata **cambie el contenido de la pila sin procesar (o consumir) símbolos sobre la cinta de entrada**.
 
@@ -420,6 +420,29 @@ $(q_f, \lambda, Z_0)$
 La **configuración de aceptación en APD con estados finales es:**
 $(q_f, \lambda, \beta)$
 
+**IMPORTANTE:** Observr que en este lenguaje la presencia del símbolo **$c$** cumple un papel fundamental: indica de manera inequívoca el instante en que el autómata debe dejar de apilar símbolos y comenzar el proceso de comparación con el contenido de la pila. Gracias a esta marca central, el APD puede decidir determinísticamente qué transición aplicar en cada configuración.
+
+Ahora bien, consideremos el lenguaje: $L=$ { $ww^R : w\in{a,b}^*$ }
+
+En este caso ya no existe un símbolo especial que señale dónde termina la primera mitad de la cadena y dónde comienza la segunda. Por ejemplo, al procesar una cadena como $abba$, ¿en qué momento debería el autómata dejar de apilar y comenzar a desapilar para efectuar la comparación?
+
+Esta dificultad sugiere que un APD no dispone de información suficiente para tomar esa decisión de manera determinística. Será necesario considerar autómatas con pila capaces de explorar distintas posibilidades de forma simultánea, es decir, **autómatas con pila no determinísticos (APND)**.
+
+## AUTÓMATAS DE PILA NO DETERMINISTAS (APND)
+
+**Un Autómata de Pila No Determinista (APND)** consta de los mismos siete parámetros de un APD, ${M = (Q, \Sigma, \Gamma, \Delta, q_{0}, Z_{0}, F )}$, pero ${\Delta}$ ahora es una función definida como:
+
+$${
+\Delta : Q \times (\Sigma \cup \{\lambda\}) \times \Gamma \rightarrow \Omega(Q \times \Gamma^*)
+}$$
+
+donde ${ \Omega( Q \times \Gamma^* ) }$ es un subconjunto finito de ${ Q \times \Gamma^* }$.
+
+Es decir ${\Delta(q, a, s)}$ = $ { $(p_1, \gamma_1), (p_2, \gamma_2), \ldots, (p_k, \gamma_k)$ }
+
+Con ${q, p_k \in Q}$, ${a \in \Sigma \cup \{\lambda\}}$, ${s \in \Gamma}$ y ${\gamma_{i}\in \Gamma^{*}}$
+
+El significado de esta transición es: al leer el símbolo $a$ sobre la cinta de entrada, la unidad de control puede pasar (aleatoriamente) a uno de los estados $p_i$ ${(1 ≤ i ≤ k)}$ y se mueve a la derecha. Sobre la pila hace lo siguiente: borra el símbolo ${s}$ que está en el tope y escribe la cadena ${\gamma_i}$.
 
 
 
