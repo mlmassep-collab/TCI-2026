@@ -275,4 +275,22 @@ $(q_0, ab, Z_0) \vdash (q_1, b, AZ_0) \vdash (q_2, \lambda, Z_0)$
 
 El autómata no ha ingresado al estado de aceptación $q_f$, y la cadena de entrada se ha consumido completamente; $(q_2, \lambda, Z_0)$ no es una configuración de aceptación, por lo tanto la cadena $v = ab$ no es aceptada.
 
+### Lenguaje Aceptado
+
+**Aceptación por estados finales**
+
+$L(M)=$ { $w \in \Sigma^* | (q_0, w, Z_0) \vdash^* (p, \lambda, \beta), \ p \in F$ }
+
+**Aceptación por pil avacía**
+
+$L(M)=$ { $w \in \Sigma^* | (p_0, w, Z_0) \vdash^* (q, \lambda, \lambda) \ \text{para algún estado} \ q$ }
+
+En ambos casos se tiene que una cadena es aceptada si se puede ir desde la configuración inicial hasta una configuración de aceptación, en cero, uno o más pasos.
+
+**Importante:**
+Se permite que una transición $\Delta(q, a, s)$ no esté definida, para algunos valores $q \in Q$, $a \in \Sigma$, $s \in \Gamma$. Esto implica que el cómputo de algunas cadenas de entrada puede abortarse sin que éstas se procesen completamente.
+
+
+
+
 
