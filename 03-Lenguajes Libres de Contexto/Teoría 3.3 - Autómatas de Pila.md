@@ -695,4 +695,53 @@ La demostración de esta imposibilidad es bastante complicada y no la presentamo
 
 De hecho es preferible construir APND's siempre puesto que un APD puede ser expresado como un APND pensando a los destinos de la funciones de transición como conjuntos con único elemento.
 
+# Convertir GLC en AP
+
+**Teorema:** Dada una GLC $G$ existe un APND $M$ tal que $L(G)=L(M)$.
+
+## Demostración (Parte constructiva)
+
+Para una GLC $G=(V,T,S,P)$ dada, se construye un $APND$ que utiliza la pila para simular la derivación de cadenas realizada por $G$.
+
+$M$ requiere solamente tres estados, independientemente del número de variables y producciones de $G$. El autómata $M$ se construye de la siguiente manera:
+
+$M=(Q,\Sigma,\Gamma,\Delta, q_0, Z_0, F)$
+
+donde:
+
+- $\Sigma = T$
+- $Q =$ { $q_0, q_1, q_2$ }
+- $F =$ { $q_2$ }
+- $\Gamma = T \cup V \cup$ { $Z_0$ }
+
+La función de transición $\Delta$ se define de la siguiente manera:
+
+### 1. Inicialización de la pila
+
+$\Delta(q_0,\lambda,z_0)=$ { $(q_1,SZ_0)$ }
+
+Transición mediante la cual $M$ coloca el símbolo inicial de la gramática, $S$, en el tope de la pila al iniciar el procesamiento de una cadena de entrada.
+
+### 2. Simulación de producciones
+
+Para cada variable $A \in V$,
+
+$\Delta(q_1,\lambda,A)=$ { $(q_1,u) : A \rightarrow u \text{ es una producción de la gramática } G$ }
+
+Mediante estas transiciones, $M$ utiliza la pila para simular las derivaciones: si el tope de la pila es $A$ y en la derivación se usa la producción $A \rightarrow u$, el tope de la pila $A$ es sustituido por $u$.
+
+### 3. Consumo de terminales
+
+Para cada símbolo terminal $a \in T$,
+
+$\Delta(q_1,a,a)=$ { $(q_1,\lambda)$ }
+
+Mediante estas transiciones, $M$ borra los terminales del tope de la pila al consumirlos sobre la cinta de entrada.
+
+### 4. Aceptación
+
+$\Delta(q_1,\lambda,z_0)=$ { $(q_2,z_0)$ }
+
+$M$ ingresa al estado de aceptación $q_2$ cuando detecta el marcador de fondo $Z_0$
+
 
