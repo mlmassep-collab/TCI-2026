@@ -685,4 +685,14 @@ ${(q_0, \lambda, BBZ_0)}$ No es configuración de acpetación. Se deberían most
 
 En este caso, se puede probar que para todo elección de caminos la cadena de entrada ${bbbaba}$ es procesada completamente pero la configuración final a la que se llega en todos los casos no es de aceptación.
 
+## Determinismo vs No Determinismo
+
+En contraste con lo que sucede con los modelos AFD y AFND, **los modelos de autómata de pila determinista (APD) y no-determinista (APND) no resultan ser computacionalmente equivalentes**: existen lenguajes aceptados por autómatas APND que no pueden ser aceptados por ningún APD. Un ejemplo concreto es el lenguaje $L =$ { $ww^R : w \in \Sigma^*$ }.
+
+Se puede construir un APND para aceptar a $L$, pero no es posible diseñar ningún APD que lo haga.
+
+La demostración de esta imposibilidad es bastante complicada y no la presentamos en la materia.
+
+De hecho es preferible construir APND's siempre puesto que un APD puede ser expresado como un APND pensando a los destinos de la funciones de transición como conjuntos con único elemento.
+
 
