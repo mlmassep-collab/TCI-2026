@@ -350,13 +350,13 @@ $(q_f,\lambda,Z_0)$ es una configuración de aceptación; por lo tanto la cadena
 
 ### Ejemplo 4
 
-**Diseñar un APD que acepte el lenguaje**
-$L =$ { $wcw^R : w \in \{a, b\}^*$ } **sobre** $\Sigma = \{a, b, c\}$.
+Diseñar un APD que acepte el lenguaje $L =$ { $wcw^R : w \in \{a, b\}^*$ } con $\Sigma =$ { $a, b, c$ }.
 
-**Notar que las cadenas** $w$ **y** $w^R$ **sólo poseen a's y/o b's.**
+Notar que las cadenas** $w$ y $w^R$ sólo poseen $a's$ y/o $b's$ y el símbolo $c$ solo se utiliza como separador.
 
-**Solución.**
-La idea es acumular los símbolos en la pila hasta que aparezca la **c**.
+**Solución:**
+
+La idea es acumular los símbolos en la pila hasta que aparezca la $c$.
  
 Luego se comparan los símbolos leídos con los almacenados en la pila, borrando en cada paso el tope de la pila.
 
@@ -374,11 +374,11 @@ $F = \{q_f\}$
 
 ### Función de transición:
 
-**Si la cadena de entrada** $u = wcw^R$ **tiene** $w = \lambda$ → entonces $u = c$
+1. Si la cadena de entrada $u = wcw^R$ tiene $w = \lambda$ entonces $u = c$
 
 $\Delta(q_0, c, Z_0) = (q_f, Z_0)$
 
-**Si la cadena de entrada** $u = wcw^R$ **tiene** $w \ne \lambda$, acumular $w$:
+2. Si la cadena de entrada $u = wcw^R$ tiene $w \ne \lambda$, entonces acumular $w$:
 
 $\Delta(q_0, a, Z_0) = (q_0, AZ_0)$
 
@@ -392,13 +392,13 @@ $\Delta(q_0, b, A) = (q_0, BA)$
 
 $\Delta(q_0, b, B) = (q_0, BB)$
 
-**Cambiar de estado para emparejar:**
+3. Cambiar de estado para emparejar
 
 $\Delta(q_0, c, A) = (q_1, A)$
 
 $\Delta(q_0, c, B) = (q_1, B)$
 
-**Emparejar** $w^R$:
+4. Emparejar** $w^R$
 
 $\Delta(q_1, a, A) = (q_1, \lambda)$
 
@@ -406,7 +406,7 @@ $\Delta(q_1, b, B) = (q_1, \lambda)$
 
 $\Delta(q_1, \lambda, Z_0) = (q_f, Z_0)$
 
-### Ejemplo de procesamiento:
+**Ejemplo de procesamiento:**
 
 $w = abbab \rightarrow u = abbabcbabba$
 
@@ -417,10 +417,9 @@ $(q_0, abbabc babba, Z_0) \vdash^{*} (q_1, babba, B A B B A Z_0)
 
 $(q_f, \lambda, Z_0)$
 
-La **configuración de aceptación en APD con estados finales es:**
-$(q_f, \lambda, \beta)$
+Es configuración de aceptación por lo tanto la cadena $u = abbabcbabba$ es aceptada por el autómata.
 
-**IMPORTANTE:** Observr que en este lenguaje la presencia del símbolo **$c$** cumple un papel fundamental: indica de manera inequívoca el instante en que el autómata debe dejar de apilar símbolos y comenzar el proceso de comparación con el contenido de la pila. Gracias a esta marca central, el APD puede decidir determinísticamente qué transición aplicar en cada configuración.
+**IMPORTANTE:** Observar que en este lenguaje la presencia del símbolo $c$ cumple un papel fundamental: indica de manera inequívoca el instante en que el autómata debe dejar de apilar símbolos y comenzar el proceso de comparación con el contenido de la pila. Gracias a esta marca central, el APD puede decidir determinísticamente qué transición aplicar en cada configuración.
 
 Ahora bien, consideremos el lenguaje: $L=$ { $ww^R : w\in{a,b}^*$ }
 
@@ -430,7 +429,7 @@ Esta dificultad sugiere que un APD no dispone de información suficiente para to
 
 ## AUTÓMATAS DE PILA NO DETERMINISTAS (APND)
 
-**Un Autómata de Pila No Determinista (APND)** consta de los mismos siete parámetros de un APD, ${M = (Q, \Sigma, \Gamma, \Delta, q_{0}, Z_{0}, F )}$, pero ${\Delta}$ ahora es una función definida como:
+Un Autómata de Pila No Determinista (APND) consta de los mismos seis o siete parámetros (dependiendo si se incorpora el conjunto de estados de acpetaciób o no) de un APD, ${M = (Q, \Sigma, \Gamma, \Delta, q_{0}, Z_{0}, F )}$, pero ${\Delta}$ ahora es una función definida como:
 
 $${
 \Delta : Q \times (\Sigma \cup \{\lambda\}) \times \Gamma \rightarrow \Omega(Q \times \Gamma^*)
@@ -456,5 +455,234 @@ $L(M) =$ { $w \in \Sigma^* : \exists (q_0, w, Z_0) \vdash^* (p, \lambda, \lambda
 
 Es decir, una cadena ${w}$ es aceptada si existe por lo menos un procesamiento de ${w}$ desde la configuración inicial hasta una configuración de aceptación.
 
+### Ejemplo 5:
+
+Diseñar un APND que acepte el lenguaje $L=$ { $ww^R : w\in{a,b}^*$ }
+
+**Solución:** La idea es almacenar en la pila los símbolos correspondientes a la primera mitad de la cadena. Como el autómata no conoce dónde se encuentra el punto medio, al leer cada símbolo puede elegir entre dos alternativas:
+
+* continuar apilando símbolos, suponiendo que todavía pertenece a la primera mitad de la cadena;
+* comenzar el proceso de emparejamiento, suponiendo que ha llegado a la segunda mitad.
+
+Esta elección introduce el *no determinismo*, ya que para una misma configuración pueden existir varias transiciones posibles.
+
+Una vez iniciada la fase de emparejamiento, cada símbolo leído debe coincidir con el símbolo almacenado en el tope de la pila. En caso contrario, la rama de cómputo se bloquea.
+
+La cadena será aceptada si se consume completamente la entrada y en la pila sólo permanece el marcador de fondo (Z_0).
+
+$M=(Q,q_0,F,\Sigma,\Gamma,Z_0,\Delta)$ donde:
+
+$Sigma=$ { $a,b$ }
+
+$\Gamma=$ { $Z_0,A,B$ }
+
+$Q=$ { $q_0,q_1,q_f$ }
+
+$F=$ { $q_f$ }
+
+Función de transición:
+
+1. Apilar símbolos
+
+$\Delta(q_0,a,Z_0)=$ { $(q_0,AZ_0)$ }
+
+$\Delta(q_0,b,Z_0)=$ { $(q_0,BZ_0)$ }
+
+$\Delta(q_0,a,B)=$ { $(q_0,AB)$ }
+
+$\Delta(q_0,b,A)=$ { $(q_0,BA)$ }
+
+2. Continuar apilando o comenzar a emparejar
+
+$\Delta(q_0,a,A)=$ { $(q_0,AA),(q_1,\lambda)$ }
+
+$\Delta(q_0,b,B)=$ { $(q_0,BB),(q_1,\lambda)$ }
+
+La primera alternativa continúa el proceso de apilamiento.
+
+La segunda alternativa consume el símbolo de entrada, elimina el símbolo coincidente del tope de la pila y pasa al estado (q_1), iniciando la fase de emparejamiento.
+
+3. Emparejar símbolos
+
+$\Delta(q_1,a,A)=$ { $(q_1,\lambda)$ }
+
+$\Delta(q_1,b,B)={ $(q_1,\lambda)$ }
+
+4. Aeptación
+
+$\Delta(q_1,\lambda,Z_0)=$ { $(q_f,Z_0)$ }
+
+**Ejemplo de procesamiento**
+
+Sea $u=abba$, una rama exitosa del cómputo es:
+
+$(q_0,abba,Z_0) \vdash
+(q_0,bba,AZ_0) \vdash
+(q_0,ba,BAZ_0) \vdash$
+
+Al leer el siguiente símbolo $b$ con $B$ en el tope de la pila existen dos posibilidades:
+
+$\Delta(q_0,b,B)=$ { $(q_0,BB),(q_1,\lambda)$ }
+
+La rama que acepta elige comenzar el emparejamiento:
+
+$(q_1,a,AZ_0) \vdash$
+
+Luego:
+
+$(q_1,\lambda,Z_0) \vdash$
+
+Finalmente:
+ 
+$(q_f,\lambda,Z_0)$
+
+Es configuración de aceptación, por lo tanto, la cadena $abba$ es aceptada.
+
+### Observación
+
+Para una misma cadena pueden existir varias transiciones posibles. El autómata explora todas las alternativas de manera no determinística. Algunas ramas del cómputo pueden bloquearse o rechazar la cadena, pero basta con que exista una rama que alcance una configuración de aceptación para que la cadena sea aceptada por el APND.
+
+**IMPORTANTE:** Si bien la solución anterior es correcta, una mjeor solución puede construirse utilizando **transiciones espontáneas** porque separa claramente las dos ideas de adivinar el punto medio y comparar ambas mitades. Además, esa técnica se generaliza inmediatamente a otros lenguajes de palíndromos y a muchos ejemplos estándar de APND. Veamos esta solución:
+
+La idea es almacenar en la pila los símbolos correspondientes a la primera mitad de la cadena. Como no existe un símbolo especial que indique dónde termina la primera mitad y comienza la segunda, el autómata utiliza una *transición espontánea (tipo 3)* para cambiar, en cualquier momento, de la fase de apilamiento a la fase de comparación.
+
+De esta manera, el APND puede "adivinar" el punto medio de la cadena. Si la elección es correcta, los símbolos restantes de la entrada coincidirán con los almacenados en la pila en orden inverso.
+
+La cadena será aceptada si se consume completamente la entrada y en la pila sólo permanece el marcador de fondo $Z_0$.
+
+$M=(Q,q_0,F,\Sigma,\Gamma,Z_0,\Delta)$
+
+donde:
+
+$\Sigma=${ $a,b$ }
+
+$\Gamma=$ { $Z_0,A,B$ }
+
+$Q=$ { $q_0,q_1,q_f$ }
+
+$F=$ { $q_f$ }
+
+Función de transición:
+
+1. Acumular símbolos de la primera mitad
+
+$\Delta(q_0,a,Z_0)=$ { $(q_0,AZ_0)$ }
+
+$\Delta(q_0,a,A)=$ { $(q_0,AA)$ }
+
+$\Delta(q_0,a,B)=$ { $(q_0,AB)$ }
+
+$\Delta(q_0,b,Z_0)=$ { $(q_0,BZ_0)$ }
+
+$\Delta(q_0,b,A)=$ { $(q_0,BA)$ }
+
+$\Delta(q_0,b,B)=$ { $(q_0,BB)$ }
+
+2. Cambio no determinístico a la fase de emparejamiento
+
+$\Delta(q_0,\lambda,Z_0)=$ { $(q_1,Z_0)$ }
+
+$\Delta(q_0,\lambda,A)=$ { $(q_1,A)$ }
+
+$\Delta(q_0,\lambda,B)=$ { $(q_1,B)$ }
+
+Estas transiciones espontáneas no consumen símbolos de la entrada y permiten que el autómata pase a la fase de comparación en cualquier momento.
+
+3. Emparejar símbolos de la segunda mitad
+
+$\Delta(q_1,a,A)=$ { $(q_1,\lambda)$ }
+
+$\Delta(q_1,b,B)=$ { $(q_1,\lambda)$ }
+
+Cada símbolo leído debe coincidir con el símbolo almacenado en el tope de la pila, el cual se elimina.
+
+4. Aceptación
+
+$\Delta(q_1,\lambda,Z_0)=$ { $(q_f,Z_0)$ }
+
+**Ejemplo de procesamiento:**
+
+Sea $u=abba$, una rama exitosa del cómputo es:
+
+$(q_0,abba,Z_0) \vdash
+(q_0,bba,AZ_0) \vdash
+(q_0,ba,BAZ_0) \vdash$
+
+En este punto el autómata utiliza una transición espontánea para "adivinar" que ha llegado al centro de la cadena:
+
+$(q_1,ba,BAZ_0) \vdash$
+
+Comienza entonces la fase de emparejamiento:
+
+$(q_1,a,AZ_0) \vdash
+(q_1,\lambda,Z_0) \vdash$
+
+Finalmente:
+
+$(q_f,\lambda,Z_0)$
+
+Es una configuración de aceptación, por lo tanto, la cadena $abba$ es aceptada.
+
+**Observación:** El APND puede cambiar de fase en cualquier instante mediante una transición espontánea. Algunas elecciones conducirán a configuraciones bloqueadas o a ramas que no alcanzan un estado final. Sin embargo, basta con que exista una rama de cómputo que llegue a una configuración de aceptación para que la cadena sea aceptada.
+
+En este ejemplo, el no determinismo permite resolver el problema fundamental de identificar el punto medio de la cadena, información que no está explícitamente indicada en la entrada.
+
+### Ejemplo 6
+
+Diseñar un Auntómata de Pila que acepte el lenguaje de todas las cadenas sobre el alfabeto $\Sigma =$ { $a, b$ } que tienen igual número de $a's$ que de $b's$.
+
+**Solución.** La idea es acumular las ${a's}$ o ${b's}$ consecutivas en la pila. Si en el tope de la pila hay una $A$ y el autómata lee una $b$, se borra la $A$; similarmente, si en el tope de la pila hay una $B$ y el autómata lee una $a$, se borra la $B$. La cadena de entrada será aceptada si es procesada completamente y en la pila sólo queda el marcador de fondo $Z_0$.
+
+Importante: En este caso el no determinismo ocurre por la inclusión de una transición espontánea que comparte la misma configuración que otra dos transiciones. Más abajo se indica cuales.
+
+$M = (Q, \Sigma, \Gamma, \Delta, q_0, Z_0, F)$, donde
+
+$\Sigma = \{a, b\}$
+
+$\Gamma = \{Z_0, A, B\}$
+
+$Q = \{q_0, q_f\}$
+
+$F = \{q_f\}$
+
+Función de transición:
+
+$\Delta(q_0, a, Z_0) = $ { $(q_0, AZ_0)$ } (*)
+
+$\Delta(q_0, b, Z_0) =$ { $(q_0, BZ_0)$ } (*)
+
+$\Delta(q_0, a, A) =$ { $(q_0, AA)$ }
+
+$\Delta(q_0, b, B) =$ { $(q_0, BB)$ }
+
+$\Delta(q_0, a, B) =$ { $(q_0, \lambda)$ }
+
+$\Delta(q_0, b, A) =$ { $(q_0, \lambda)$ }
+
+$\Delta(q_0, \lambda, Z_0) =$ { $(q_f, Z_0)$ } (*)
+
+(*) la inclusión de $\Delta(q_0, \lambda, Z_0) = (q_f, Z_0)$ junto con $\Delta(q_0, a, Z_0) = (q_0, AZ_0)$ y $\Delta(q_0, b, Z_0) = (q_0, BZ_0)$ hace que el autómata sea no determinista.
+
+**Ejemplos de procesamiento:**
+
+Sea ${w=aabaabbb}$, una rama exitosa del cómputo es:
+
+$(q_0, aabaabbb, Z_0) \vdash (q_0, abaabbb, AZ_0) \vdash (q_0, baabbb, AA Z_0) \vdash (q_0, aabbb, A Z_0)  \vdash$
+
+$(q_0, abbb, AA Z_0) \vdash (q_0, bbb, AAA Z_0) \vdash (q_0, bb, AAZ_0)\vdash (q_0, b, A Z_0) \vdash$
+
+$(q_0, \lambda, Z_0) \vdash  (q_f, \lambda, Z_0)$
+
+$(q_f, \lambda, Z_0)$ es configuración de aceptación y **por lo tanto la cadena es aceptada.**
+
+Sea ${w=bbbaba}$, una corrida de rechazo para esta cadena es:
+
+$(q_0, bbbaba, Z_0) \vdash (q_0, bbaba, BZ_0) \vdash (q_0, baba, BB Z_0) \vdash (q_0, aba, BB BZ_0)$
+
+$\vdash (q_0, ba, BBZ_0) \vdash (q_0, a, BBBZ_0) \vdash (q_0, \lambda, BBZ_0)$
+
+${(q_0, \lambda, BBZ_0)}$ No es configuración de acpetación. Se deberían mostrar que todos los caminos conducen a una configuración que no es de aceptación para aformar que la cadena no es acpetada por el autómata.
+
+En este caso, se puede probar que para todo elección de caminos la cadena de entrada ${bbbaba}$ es procesada completamente pero la configuración final a la que se llega en todos los casos no es de aceptación.
 
 
