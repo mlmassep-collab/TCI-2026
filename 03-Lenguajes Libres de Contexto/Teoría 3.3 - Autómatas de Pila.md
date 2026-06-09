@@ -213,7 +213,7 @@ La entrada se ha terminado (no queda nada por leer) y la pila se encuentra total
 
 ### Ejemplo 2
 
-Construir un APD que acepte $L = \{ a^n b^n \mid n \geq 3 \}$
+Construir un APD que acepte $L =$ { $a^n b^n \mid n \geq 2$ }
 
 **Solución:**
 
@@ -222,36 +222,32 @@ $M = (Q, \Sigma, \Gamma, \Delta, q_0, z_0, F)$, donde
 $\Sigma = \{a, b\}$
 $\Gamma = \{Z_0, A\}$
 $q_0 = q_0$
-$Q = \{q_0, q_1, q_f\}$
+$Q = \{q_0, q_1, q_2, q_3 q_f\}$
 $F = \{q_f\}$
 
 y la función de transición está dada por:
 
-$
-\Delta(q_0, a, Z_0) = (q_0, AZ_0)
-$
+$\Delta(q_0, a, Z_0) = (q_1, AZ_0)$
 
-$
-\Delta(q_0, a, A) = (q_0, AA)
-$
+$\Delta(q_1, a, A) = (q_2, AA)$
 
-$
-\Delta(q_0, b, A) = (q_1, \lambda)
-$
+$\Delta(q_2, a, A) = (q_1, AA)$
 
-$
-\Delta(q_1, b, A) = (q_1, \lambda)
-$
+$\Delta(q_2, b, A) = (q_3, \lambda)$
 
-$
-\Delta(q_1, \lambda, Z_0) = (q_f, Z_0)
-$
+$\Delta(q_3, b, A) = (q_3, \lambda)$
+
+$\Delta(q_3, \lambda, Z_0) = (q_f, Z_0)$
 
 Los estados tienen distintos propósitos o indican la ocurrencia de distintos sucesos en la lectura de la cadena de entrada, en este caso:
 
-$q_0$: estado en el que se leen solo a’s (No pueden haber b’s en la cinta).
+$q_0$: estado en el que se solo es posible leer una (No pueden haber b’s en la cinta).
 
-$q_1$: estado en el que se emparejan las a’s con las b’s (No pueden aparecer a’s en la cinta).
+$q_1$: estado en el que se verificó la exstencia de una $a$
+
+$q_2$: estado en el que se verificó la exstencia de dos $a's$
+
+$q_3$: estado en el que se emparejan las a’s con las b’s (No pueden aparecer a’s en la cinta).
 
 $q_f$: estado de aceptación (significa que se logró emparejar cada A de la pila con cada b de la cinta).
 
@@ -259,19 +255,24 @@ Podemos ilustrar el procesamiento de varias cadenas de entrada.
 
 Para la cadena de entrada $u = aaabbb$, se obtiene el siguiente procesamiento:
 
-$
-(q_0, aaabbb, z_0) \vdash (q_0, aabbb, AZ_0) \vdash (q_0, abbb, AA Z_0) \vdash (q_0, bbb, AAA Z_0) \vdash (q_1, bb, AA Z_0) \vdash (q_1, b, A Z_0) \vdash (q_1, \lambda , Z_0) \vdash (q_f, \lambda, Z_0)
-$
+$(q_0, aaabbb, z_0) \vdash (q_1, aabbb, AZ_0) \vdash (q_2, abbb, AA Z_0) \vdash (q_2, bbb, AAA Z_0) \vdash (q_3, bb, AA Z_0) \vdash (q_3, b, A Z_0) \vdash (q_3, \lambda , Z_0) \vdash (q_f, \lambda, Z_0)$
 
 $(q_f, \lambda, Z_0)$ es una configuración de aceptación; por lo tanto la cadena $u = aaabbb$ es aceptada.
 
 Para la cadena de entrada $v = aabbb$, se obtiene el siguiente procesamiento:
 
-$
-(q_0, aabbb, Z_0) \vdash (q_0, abbb, AZ_0) \vdash (q_0, bbb, AA Z_0) \vdash (q_1, bb b, A Z_0) \vdash (q_1, b b, Z_0)
-$
+$(q_0, aabbb, Z_0) \vdash (q_1, abbb, AZ_0) \vdash (q_2, bbb, AA Z_0) \vdash (q_3, bb b, A Z_0) \vdash (q_3, b, Z_0)$
 
 **\[cómputo abortado]**
 
 El autómata ha ingresado al estado de aceptación $q_f$, pero la cadena de entrada no es aceptada debido a que no se ha procesado completamente; $(q_f, b, Z_0)$ no es una configuración de aceptación, por lo tanto la cadena $v = aabbb$ no es aceptada.
+
+Para la cadena de entrada $v = ab$, se obtiene el siguiente procesamiento:
+
+$(q_0, ab, Z_0) \vdash (q_1, b, AZ_0) \vdash (q_2, \lambda, Z_0)$
+
+**\[cómputo abortado]**
+
+El autómata no ha ingresado al estado de aceptación $q_f$, y la cadena de entrada se ha consumido completamente; $(q_2, \lambda, Z_0)$ no es una configuración de aceptación, por lo tanto la cadena $v = ab$ no es aceptada.
+
 
