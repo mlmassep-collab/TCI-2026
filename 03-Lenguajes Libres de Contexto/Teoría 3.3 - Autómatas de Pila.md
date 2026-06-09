@@ -348,6 +348,77 @@ ${(q_0, aabbbbb, Z_0) \vdash (q_0, abbbbb, AAZ_0) \vdash (q_0, bbbbb, AAAAZ_0) \
 
 $(q_f,\lambda,Z_0)$ es una configuración de aceptación; por lo tanto la cadena ${u=aabbbbb}$ es aceptada.
 
+### Ejemplo 4
+
+**Diseñar un APD que acepte el lenguaje**
+$L =$ { $wcw^R : w \in \{a, b\}^*$ } **sobre** $\Sigma = \{a, b, c\}$.
+
+**Notar que las cadenas** $w$ **y** $w^R$ **sólo poseen a's y/o b's.**
+
+**Solución.**
+La idea es acumular los símbolos en la pila hasta que aparezca la **c**.
+ 
+Luego se comparan los símbolos leídos con los almacenados en la pila, borrando en cada paso el tope de la pila.
+
+La cadena de entrada será aceptada si es procesada completamente y en la pila sólo queda el marcador de fondo $Z_0$.
+
+$M = (Q, q_0, F, \Sigma, \Gamma, Z_0, \Delta)$, donde:
+
+$\Sigma = \{a, b, c\}$
+
+$\Gamma = \{Z_0, A, B\}$
+
+$Q = \{q_0, q_1, q_f\}$
+
+$F = \{q_f\}$
+
+### Función de transición:
+
+**Si la cadena de entrada** $u = wcw^R$ **tiene** $w = \lambda$ → entonces $u = c$
+
+$\Delta(q_0, c, Z_0) = (q_f, Z_0)$
+
+**Si la cadena de entrada** $u = wcw^R$ **tiene** $w \ne \lambda$, acumular $w$:
+
+$\Delta(q_0, a, Z_0) = (q_0, AZ_0)$
+
+$\Delta(q_0, a, A) = (q_0, AA)$
+
+$\Delta(q_0, a, B) = (q_0, AB)$
+
+$\Delta(q_0, b, Z_0) = (q_0, BZ_0)$
+
+$\Delta(q_0, b, A) = (q_0, BA)$
+
+$\Delta(q_0, b, B) = (q_0, BB)$
+
+**Cambiar de estado para emparejar:**
+
+$\Delta(q_0, c, A) = (q_1, A)$
+
+$\Delta(q_0, c, B) = (q_1, B)$
+
+**Emparejar** $w^R$:
+
+$\Delta(q_1, a, A) = (q_1, \lambda)$
+
+$\Delta(q_1, b, B) = (q_1, \lambda)$
+
+$\Delta(q_1, \lambda, Z_0) = (q_f, Z_0)$
+
+### Ejemplo de procesamiento:
+
+$w = abbab \rightarrow u = abbabcbabba$
+
+$(q_0, abbabc babba, Z_0) \vdash^{*} (q_1, babba, B A B B A Z_0)
+\vdash (q_1, abba,  A B B A Z_0) \vdash (q_1, bba,  B B A Z_0)
+\vdash (q_1, ba,  B A Z_0) \vdash (q_1, a, A Z_0)
+\vdash (q_1, \lambda, Z_0) \vdash$
+
+$(q_f, \lambda, Z_0)$
+
+La **configuración de aceptación en APD con estados finales es:**
+$(q_f, \lambda, \beta)$
 
 
 
