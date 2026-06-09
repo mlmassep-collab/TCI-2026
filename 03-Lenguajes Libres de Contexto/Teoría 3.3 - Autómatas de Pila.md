@@ -506,7 +506,7 @@ La segunda alternativa consume el símbolo de entrada, elimina el símbolo coinc
 
 $\Delta(q_1,a,A)=$ { $(q_1,\lambda)$ }
 
-$\Delta(q_1,b,B)={ $(q_1,\lambda)$ }
+$\Delta(q_1,b,B)=$ { $(q_1,\lambda)$ }
 
 4. Aeptación
 
