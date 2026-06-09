@@ -290,6 +290,65 @@ En ambos casos se tiene que una cadena es aceptada si se puede ir desde la confi
 **Importante:**
 Se permite que una transición $\Delta(q, a, s)$ no esté definida, para algunos valores $q \in Q$, $a \in \Sigma$, $s \in \Gamma$. Esto implica que el cómputo de algunas cadenas de entrada puede abortarse sin que éstas se procesen completamente.
 
+### Ejemplo 3
+$L =$ { $a^n b^{2n+1} \mid n \geq 0$ }
+
+Ejemplos de cadenas de $L$:
+
+* $n = 0 \Rightarrow b^1 = b$
+* $n = 1 \Rightarrow a b^3 = a bbb$
+* $n = 2 \Rightarrow aa b^5 = aa bbbbb$
+* $n = 3 \Rightarrow aaa b^7 = aaa bbbbbbb$
+
+Este lenguaje tiene una relación fija entre las ${a’s}$ y ${b’s}$, que se puede seguir perfectamente con una pila y de manera determinista.
+
+Ideas para la construcción de aceptación por un APD determinista:
+
+1. **Primera fase:** mientras se leen ${a}$, se apilan dos símbolos (por cada ${a}$ leído, se ponen dos símbolo en la pila).
+2. **Transición:** cuando se empieza a leer ${b}$, se pasa a la segunda fase.
+3. **Segunda fase:** por cada ${b}$, se hace lo siguiente:
+
+   * Por cada par de ${b}$, se desapila **un** símbolo.
+   * Al terminar de desapilar todos los símbolos (cuando la pila esté vacía), **queda 1 ${b}$ extra** que se debe comprobar.
+     
+4. Si se llega al final de la cadena con la pila vacía y habiendo leído exactamente **2n + 1** ${b}$, la cadena se acepta.
+
+Solución:
+$M = (Q, \Sigma, \Gamma, \Delta, q_0, Z_0, F)$, donde
+
+$\Sigma = \{a, b\}$
+
+$\Gamma = \{Z_0, A\}$
+
+$q_0 = q_0$
+
+$Z_0 = Z_0$
+
+$Q = \{q_0, q_1, q_f\}$
+
+$F = \{q_f\}$
+
+y la función de transición está dada por:
+
+$\Delta(q_0, a, Z_0) = (q_0, AAZ_0)$
+
+$\Delta(q_0, a, A) = (q_0, AAA)$
+
+$\Delta(q_0, b, A) = (q_1, \lambda)$
+
+$\Delta(q_1, b, A) = (q_1, \lambda)$
+
+$\Delta(q_1, b, Z_0) = (q_2, Z_0)$
+
+$\Delta(q_2, \lambda, Z_0) = (q_f, Z_0)$
+
+Procesamiento de la cadena ${w=aabbbbb}$
+
+${(q_0, aabbbbb, Z_0) \vdash (q_0, abbbbb, AAZ_0) \vdash (q_0, bbbbb, AAAAZ_0) \vdash (q_1, bbbb, AAAZ_0) \vdash (q_1, bbb, AAZ_0) \vdash (q_1, bb, AZ_0) \vdash (q_1, b, Z_0) \vdash (q_2, \lambda, Z_0) \vdash (q_f, \lambda, Z_0)}$
+
+$(q_f,\lambda,Z_0)$ es una configuración de aceptación; por lo tanto la cadena ${u=aabbbbb}$ es aceptada.
+
+
 
 
 
