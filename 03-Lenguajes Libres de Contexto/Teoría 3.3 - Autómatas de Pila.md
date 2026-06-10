@@ -697,9 +697,11 @@ De hecho es preferible construir APND's siempre puesto que un APD puede ser expr
 
 # Convertir GLC en AP
 
-**Teorema:** Dada una GLC $G$ existe un APND $M$ tal que $L(G)=L(M)$.
+### Teorema:
 
-## Demostración (Parte constructiva)
+Dada una GLC $G$ existe un APND $M$ tal que $L(G)=L(M)$.
+
+**Demostración (Parte constructiva)**
 
 Para una GLC $G=(V,T,S,P)$ dada, se construye un $APND$ que utiliza la pila para simular la derivación de cadenas realizada por $G$.
 
@@ -716,13 +718,13 @@ donde:
 
 La función de transición $\Delta$ se define de la siguiente manera:
 
-### 1. Inicialización de la pila
+**1. Inicialización de la pila**
 
 $\Delta(q_0,\lambda,z_0)=$ { $(q_1,SZ_0)$ }
 
 Transición mediante la cual $M$ coloca el símbolo inicial de la gramática, $S$, en el tope de la pila al iniciar el procesamiento de una cadena de entrada.
 
-### 2. Simulación de producciones
+**2. Simulación de producciones**
 
 Para cada variable $A \in V$,
 
@@ -730,7 +732,7 @@ $\Delta(q_1,\lambda,A)=$ { $(q_1,u) : A \rightarrow u \text{ es una producción 
 
 Mediante estas transiciones, $M$ utiliza la pila para simular las derivaciones: si el tope de la pila es $A$ y en la derivación se usa la producción $A \rightarrow u$, el tope de la pila $A$ es sustituido por $u$.
 
-### 3. Consumo de terminales
+**3. Consumo de terminales**
 
 Para cada símbolo terminal $a \in T$,
 
@@ -738,10 +740,110 @@ $\Delta(q_1,a,a)=$ { $(q_1,\lambda)$ }
 
 Mediante estas transiciones, $M$ borra los terminales del tope de la pila al consumirlos sobre la cinta de entrada.
 
-### 4. Aceptación
+**4. Aceptación**
 
 $\Delta(q_1,\lambda,z_0)=$ { $(q_2,z_0)$ }
 
 $M$ ingresa al estado de aceptación $q_2$ cuando detecta el marcador de fondo $Z_0$
+
+### Ejemplo 9:
+
+Sea $G$ la gramática:
+
+$N=$ { $S,A,B$ }
+
+$T=$ { $a,b$ }
+
+La variable inicial de $G$ es $S$.
+
+Producciones:
+
+$S \rightarrow aAbS \mid bBa \mid \lambda$
+
+$A \rightarrow aA \mid a$
+
+$B \rightarrow bB \mid b$
+
+El $APND$ vinculado a $G$ se define como:
+
+$M=(Q,\Sigma,\Gamma,\Delta,q_0,Z_0,F)$
+
+donde:
+
+- $\Sigma=$ { $a,b$ }
+- $Q=${ $q_0,q_1,q_2$ }
+- $F=$ { $q_2$ }
+- $\Gamma=$ { $a,b,S,A,B,Z_0$ }
+
+La función de transición $\Delta$ es:
+
+1. Agregar la variable inicial de $G$ a la pila
+
+$\Delta(q_0,\lambda,z_0)=$ { $(q_1,Sz_0)$ }
+
+2. Simular derivaciones
+
+Para la variable $S$
+
+$\Delta(q_1,\lambda,S)=$ { $(q_1,aAbS),(q_1,bBa),(q_1,\lambda)$ }
+
+Para la variable $A$
+
+$\Delta(q_1,\lambda,A)=$ { $(q_1,aA),(q_1,a)$ }
+
+Para la variable $B$
+
+$\Delta(q_1,\lambda,B)=$ { $(q_1,bB),(q_1,b)$ }
+
+3. Consumir símbolos terminales de la cinta y de la pila
+
+$\Delta(q_1,a,a)=$ { $(q_1,\lambda)$ }
+
+$\Delta(q_1,b,b)=$ { $(q_1,\lambda)$ }
+
+4. Llegar al estado final cuando se encuentra el marcador de inicio de la pila
+
+$\Delta(q_1,\lambda,z_0)=$ { $(q_2,z_0)$ }
+
+**Correspondencia entre derivaciones y procesamientos:**
+
+Podemos ilustrar la correspondencia entre derivaciones en $G$ y procesamientos en $M$ con la cadena $aabbba$ la cual tiene la siguiente derivación a izquierda:
+
+$S \Rightarrow aAbS
+\Rightarrow aabS
+\Rightarrow aabbBa
+\Rightarrow aabbba$
+
+La cadena $aabbba$ es procesada por el autómata $M$ de la siguiente manera:
+
+$(q_0,aabbba,z_0)
+\vdash
+(q_1,aabbba,Sz_0)
+\vdash
+(q_1,aabbba,aAbSz_0)
+\vdash
+(q_1,abbba,AbSz_0)
+\vdash
+(q_1,abbba,abSz_0)
+\vdash
+(q_1,bbba,bSz_0)
+\vdash
+(q_1,bba,Sz_0)
+\vdash
+(q_1,bba,bBaz_0)
+\vdash
+(q_1,ba,Baz_0)
+\vdash
+(q_1,ba,baz_0)
+\vdash
+(q_1,a,az_0)
+\vdash
+(q_1,\lambda,z_0)
+\vdash
+(q_2,\lambda,z_0)$
+
+**Observación:** Notar que en esta secuencia de configuraciones no se están mostrando todos los posibles movimientos a realizar por el AP en cada paso. Solo se muestra el **camino de éxito**.
+
+Recordar que, cuando al menos una secuencia de movimientos (cómputo) permite llegar desde una configuración inicial hasta una configuración de aceptación, entonces la cadena pertenece al lenguaje $aabbba \in L(G)=L(M)$.
 
 
