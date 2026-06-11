@@ -820,7 +820,7 @@ $\Delta(q_1,\lambda,z_0)=$ { $(q_2,z_0)$ }
 
 $M$ ingresa al estado de aceptación $q_2$ cuando detecta el marcador de fondo $Z_0$
 
-### Ejemplo 9:
+### Ejemplo 8:
 
 Sea $G$ la gramática:
 
