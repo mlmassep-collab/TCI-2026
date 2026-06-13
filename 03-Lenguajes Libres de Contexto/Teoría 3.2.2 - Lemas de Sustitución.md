@@ -1,3 +1,5 @@
+# Lemas de Sustitución
+
 ## Lema 1: Sustituye producciones derivables en un paso desde una variable sintáctica
 
 Sea ${G = (N, T, S, P)}$ una GLC. Sean:
