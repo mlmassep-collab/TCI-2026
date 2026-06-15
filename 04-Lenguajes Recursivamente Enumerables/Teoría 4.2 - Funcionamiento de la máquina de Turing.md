@@ -4,7 +4,7 @@ Una **Máquina de Turing (MT)** es un modelo abstracto de computación compuesto
 
 1. Una cinta potencialmente infinita, 
 2. Un cabezal de lectura y escritura, y 
-3. Un control finito encargado de dirigir la ejecución del algoritmo.
+3. Un control finito encargado de determinar qué acción debe realizarse en cada paso de acuerdo al símbolo leído en la cinta y la función de transición definida.
 
 La cinta se encuentra dividida en celdas, cada una de las cuales almacena un símbolo. 
 
