@@ -339,3 +339,16 @@ $\mathbf{q_5}XXYY
 0011\mathbf{q_5}\beta \vdash_M$
 
 $0011\mathbf{q_f}\beta$
+
+## El lenguaje de una máquina de Turing
+
+Intuitivamente, hemos sugerido la forma en que una máquina de Turing acepta un lenguaje. La cadena de entrada se coloca en la cinta y la cabeza de la cinta señala el símbolo de entrada más a la izquierda. Si la MT entra en un estado de aceptación, entonces la entrada se acepta, y no se acepta en cualquier otro caso.
+Más formalmente:
+
+Sea $M = (Q, \Sigma, \Gamma, \delta, q_0, \beta, F)$ una máquina de Turing. 
+
+$L(M) =$ { $w \in \Sigma^{*} | \mathbf{q_0} w \overset{\ast}{\vdash_M} \alpha \mathbf{p} \beta$ } 
+
+Para algún estado $\mathbf{p} \in F$ y cualquier cadena $\alpha$ y $\beta$. 
+
+El conjunto de lenguajes que podemos aceptar utilizando una máquina de Turing a menudo se denominan lenguajes recursivamente enumerables o lenguajes RE. 
