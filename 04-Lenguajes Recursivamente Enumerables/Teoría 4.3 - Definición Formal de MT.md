@@ -258,6 +258,37 @@ $\mathbf{q_0}\beta
 \vdash_M
 \mathbf{q_f} \beta$
 
+**IMPORTANTE:** Esta MT pierde el contenido inicial de la cinta. ¿Cómo podemos implementar una solución que no deje la cinta en blanco?
+
+Vamos a utilizar símbolos adicionales de la cinta para marcar los $0's$ y los $1's$ que ya fueron emparejados.
+
+$M=(Q,\Sigma,\Gamma,\delta,q_0,\beta,F)$
+
+donde:
+
+$Q =$ { $q_0,q_1,q_2,q_3,q_4,q_5,q_f$ }
+
+$\Sigma =$ { $0,1$ } 
+
+$\Gamma =$ { $0, 1, X, Y, \beta$ } 
+
+$q_0 = q_0$ 
+
+$\beta=\beta$ 
+
+$F=$ { $q_f$ } 
+
+Función de transición:
+
+| $Q$ | $0$ | $1$ | $X$ | $Y$ | $β$ |
+|---|---|---|---|---|---|
+| $q_0$ | $(q_1,X,D)$ | – | – | $(q_4,Y,I)$ | $(q_f,\beta,D)$ |
+| $q_1$ | $(q_1,0,D)$ | $(q_1,1,D)$ | – | $(q_2,Y,I)$ | $(q_2,\beta,I)$ |
+| $q_2$ | – | $(q_3,Y,I)$ | – | – | – |
+| $q_3$ | $(q_3,0,I)$ | $(q_3,1,I)$ | $(q_0,X,D)$ | – | – |
+| $q_4$ | – | – | $(q_4,X,I)$ | – | $(q_5,\beta,D)$ |
+| $q_5$ | – | – | $(q_5,0,D)$ | $(q_5,1,D)$ | $(q_f,\beta,D)$ |
+| $q_f$ | – | – | – | – | – |
 
 
 
