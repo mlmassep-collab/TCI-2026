@@ -290,5 +290,52 @@ Función de transición:
 | $q_5$ | – | – | $(q_5,0,D)$ | $(q_5,1,D)$ | $(q_f,\beta,D)$ |
 | $q_f$ | – | – | – | – | – |
 
+**Ejemplo de procesaiento:**
 
+$\mathbf{q_0}0011 \vdash_M$
 
+$X\mathbf{q_1}011
+\vdash_M
+X0\mathbf{q_1}11
+\vdash_M
+X01\mathbf{q_1}1
+\vdash_M
+X011\mathbf{q_1}\beta \vdash_M$
+
+$X01\mathbf{q_2}1 \vdash_M$
+
+$X0\mathbf{q_3}1Y
+\vdash_M
+X\mathbf{q_3}01Y \vdash_M$
+
+$X\mathbf{q_0}01Y$
+
+$XX\mathbf{q_1}1Y
+\vdash_M
+XX1\mathbf{q_1}Y\vdash_M$
+
+$XX\mathbf{q_2}1Y \vdash_M$
+
+$X\mathbf{q_3}XYY \vdash_M$
+
+$X\mathbf{q_0}XYY \vdash_M$
+
+$XXY\mathbf{q_4}Y
+\vdash_M
+X\mathbf{q_4}XYY
+\vdash_M
+\mathbf{q_4}XXYY
+\vdash_M
+\mathbf{q_4}\beta XXYY \vdash_M$
+
+$\mathbf{q_5}XXYY 
+\vdash_M
+0\mathbf{q_5}XYY
+\vdash_M
+00\mathbf{q_5}YY
+\vdash_M
+001\mathbf{q_5}Y
+\vdash_M
+0011\mathbf{q_5}\beta \vdash_M$
+
+$0011\mathbf{q_f}\beta$
