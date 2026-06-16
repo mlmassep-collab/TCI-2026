@@ -137,7 +137,7 @@ Función de transición:
 | $Q$  | $0$ | $1$ | $\beta$ |
 |----|----|----|----|
 | $q_0$ | $(q_1, \beta, D)$ | $–$ | ($q_f, \beta, D)$ |
-| $q_1$ | $(q_1, 0, D)$ | $(q_1, D, I)$ | $(q_2, \beta, I)$ |
+| $q_1$ | $(q_1, 0, D)$ | $(q_1, 1, D)$ | $(q_2, \beta, I)$ |
 | $q_2$ | $–$ | $(q_3, \beta, I)$ | $–$ |
 | $q_3$ | $(q_3, 0, I)$ | $(q_3, 1, I)$ | $(q_0, \beta, D)$ |
 | $q_f$  | $–$ | $–$ | $–$ |
@@ -189,6 +189,68 @@ Así vuelve al inicio para comenzar una nueva iteración.
 $q_f$: aceptación
 
 > Es el estado final. Cuando la máquina llega a este estado, la ejecución termina y la cadena es aceptada.
+
+**Ejemplo de procesamiento:**
+
+Sea $w=000111$ el procesamiento de la cadena es:
+
+$\mathbf{q_0} 000111 \vdash_M$
+
+$\beta \mathbf{q_1} 00111
+\vdash_M
+0 \mathbf{q_1} 0111
+\vdash_M
+00 \mathbf{q_1} 111
+\vdash_M
+001 \mathbf{q_1} 11
+\vdash_M
+0011 \mathbf{q_1} 1
+\vdash_M
+00111 \mathbf{q_1} \beta \vdash_M$
+
+$0011 \mathbf{q_2} 1 \vdash_M$
+
+$001 \mathbf{q_3} 1 \beta
+\vdash_M
+00 \mathbf{q_3} 11 
+\vdash_M
+0 \mathbf{q_3} 011 
+\vdash_M
+\mathbf{q_3} 0011 
+\vdash_M
+\mathbf{q_3} \beta 0011 \vdash_M$
+
+$\mathbf{q_0} 0011 \vdash_M$
+
+$\beta \mathbf{q_1} 011
+\vdash_M
+0 \mathbf{q_1} 11 
+\vdash_M
+01 \mathbf{q_1} 1 
+\vdash_M
+011 \mathbf{q_1} \beta \vdash_M$
+
+$01 \mathbf{q_2} 1 \vdash_M$
+
+$0 \mathbf{q_3} 1 \beta
+\vdash_M
+\mathbf{q_3} 01
+\vdash_M
+\mathbf{q_3} \beta 01 \vdash_M$
+
+$\mathbf{q_0} 01 \vdash_M$
+
+$\beta \mathbf{q_1}1
+\vdash_M
+1 \mathbf{q_1} \beta \vdash_M$ 
+
+$\mathbf{q_2} 1 \vdash_M$
+
+$\mathbf{q_3}\beta \vdash_M$
+
+$\mathbf{q_0}\beta
+\vdash_M
+\mathbf{q_f} \beta$
 
 
 
