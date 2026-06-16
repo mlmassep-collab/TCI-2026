@@ -5,7 +5,7 @@ La notación formal que vamos a emplear para una Máquina de Turing ($MT$) es si
 Una $MT$ se describe mediante la siguiente séptupla:
 
 $$
-M = (Q, \Sigma, \Gamma, \delta, q_0, B, F)
+M = (Q, \Sigma, \Gamma, \delta, q_0, \beta, F)
 $$
 
 donde sus componentes tienen el siguiente significado:
@@ -30,7 +30,7 @@ donde:
 
 - $q_0$: estado inicial. Es un elemento de $Q$ en el que comienza la ejecución de la máquina.
 
-- $B$: símbolo blanco (espacio en blanco). Pertenece a $\Gamma$ pero no a $\Sigma$. Inicialmente aparece en todas las celdas de la cinta excepto en aquellas que contienen la entrada.
+- $\beta$: símbolo blanco (espacio en blanco). Pertenece a $\Gamma$ pero no a $\Sigma$. Inicialmente aparece en todas las celdas de la cinta excepto en aquellas que contienen la entrada.
 
 - $F$: conjunto de estados finales o de aceptación. Es un subconjunto de $Q$.
 
@@ -47,3 +47,54 @@ para representar una configuración en la que:
 1. q es el estado en el que se encuentra la máquina de Turing.
 2. El cabezal está señalando al i-ésimo símbolo empezando por la izquierda.
 3. $X_1 X_2 · · · X_n$ es la parte de la cinta comprendida entre los símbolos distintos del espacio en blanco más a la izquierda y más a la derecha.
+
+## Descripciones instantáneas
+
+Describimos los movimientos de una máquina de Turing $M=(Q,\Sigma,\Gamma,\delta,q_0,\beta,F)$ utilizando la notación $\vdash_M$ que hemos empleado para los autómatas a pila. Cuando se sobreentienda que hacemos referencia a la $MT$, utilizaremos simplemente $\vdash$ para indicar los movimientos.
+
+Como es habitual, utilizaremos ${ \vdash_M^* }$ (o simplemente ${ \vdash^*} $) para indicar cero o más movimientos de la máquina de Turing $M$.
+
+### Movimiento hacia la izquierda
+
+Supongamos que $\delta(q,X_i)=(p,Y,L)$ es decir, el siguiente movimiento se realiza hacia la izquierda. Entonces:
+
+$X_1X_2\cdots X_{i-1} \mathbf{q} X_iX_{i+1}\cdots X_n$ $\vdash_M$ $X_1X_2\cdots X_{i-2} \mathbf{p} X_{i-1}YX_i\cdots X_n$
+
+Observe cómo este movimiento refleja el cambio al estado $\mathbf{p}$ y el hecho de que la cabeza de la cinta ahora señala a la casilla $i-1$.
+
+Existen dos excepciones importantes:
+
+**1. La cabeza está en la primera posición**
+
+Si $i=1$, entonces $M$ se mueve al espacio en blanco situado a la izquierda de $X_1$. En dicho caso:
+
+$\mathbf{q} X_1 X_2 \cdots X_n$ $\vdash_M$ $\mathbf{p} \beta YX_2 \cdots X_n$
+
+**2. Se escribe un blanco al final de la configuración**
+
+Si $i=n$ e $Y=\beta$, entonces el símbolo $\beta$ escrito sobre $X_n$ se añade a la secuencia infinita de espacios en blanco que hay después de la cadena de entrada y no aparecerá en la siguiente configuración. Por tanto:
+
+$X_1X_2\cdots X_{n-1} \mathbf{q} X_n$ $\vdash_M$ $X_1X_2 \cdots X_{n-2} \mathbf{p} X_{n-1}$
+
+### Movimiento hacia la derecha
+
+Supongamos ahora que $\delta(q,X_i)=(p,Y,R)$ es decir, el siguiente movimiento se realiza hacia la derecha. Entonces:
+
+$X_1 X_2 \cdots X_{i-1} \mathbf{q} X_iX_{i+1}\cdots X_n$ $\vdash_M$ $X_1X_2\cdots X_{i-1}Y \mathbf{p} X_{i+1}\cdots X_n$
+
+En este caso, el movimiento refleja el hecho de que la cabeza se ha movido a la casilla $i+1$.
+
+De nuevo, tenemos dos excepciones importantes.
+
+**1. La cabeza avanza más allá del último símbolo**
+
+Si $i=n$, entonces la casilla $i+1$ contiene un espacio en blanco, por lo que dicha casilla no formaba parte de la configuración anterior. Por tanto:
+
+$X_1X_2\cdots X_{n-1} \mathbf{q} X_n$ $\vdash_M$ $X_1X_2\cdots X_{n-1}Y \mathbf{p} \beta$
+
+**2. Se escribe un blanco en la primera posición**
+
+Si $i=1$ e $Y=\beta$, entonces el símbolo $\beta$ escrito sobre $X_1$ se añade a la secuencia infinita de espacios en blanco anteriores a la cadena de entrada y no aparecerá en la siguiente configuración. Por tanto:
+
+$\mathbf{q} X_1X_2\cdots X_n$ $\vdash_M$ $\mathbf{p} X_2\cdots X_{n}$
+
