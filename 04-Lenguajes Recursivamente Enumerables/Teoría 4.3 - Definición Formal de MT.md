@@ -192,6 +192,12 @@ $q_f$: aceptación
 
 **Ejemplo de procesamiento:**
 
+<p align="center">
+  <img src="Img/procesamiento.png" width="700">
+</p>
+
+**Formalmente:**
+
 Sea $w=000111$ el procesamiento de la cadena es:
 
 $\mathbf{q_0} 000111 \vdash_M$
