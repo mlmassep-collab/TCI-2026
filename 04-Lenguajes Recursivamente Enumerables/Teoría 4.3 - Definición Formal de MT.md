@@ -58,7 +58,7 @@ Como es habitual, utilizaremos ${ \vdash_M^* }$ (o simplemente ${ \vdash^*} $) p
 
 Supongamos que $\delta(q,X_i)=(p,Y,L)$ es decir, el siguiente movimiento se realiza hacia la izquierda. Entonces:
 
-$X_1X_2\cdots X_{i-1} \mathbf{q} X_iX_{i+1}\cdots X_n$ $\vdash_M$ $X_1X_2\cdots X_{i-2} \mathbf{p} X_{i-1}YX_i\cdots X_n$
+$X_1X_2\cdots X_{i-1} \mathbf{q} X_iX_{i+1}\cdots X_n$ $\vdash_M$ $X_1X_2\cdots X_{i-2} \mathbf{p} X_{i-1}YX_{i+1}\cdots X_n$
 
 Observe cómo este movimiento refleja el cambio al estado $\mathbf{p}$ y el hecho de que la cabeza de la cinta ahora señala a la casilla $i-1$.
 
