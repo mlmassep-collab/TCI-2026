@@ -113,7 +113,7 @@ Ejemplos: $\varepsilon, 01,0011,000111,00001111,\ldots$
 3. Borra el último $1$ no procesado.
 4. Regresar al comienzo (buscar el primer blanco a la izquierda).
 5. Repite el proceso hasta no tener más $0's$ y $1's$ para emparejar.
-6. Si la cinta queda vacía se apceta, sino se rechaza.
+6. Si la cinta queda vacía se acepta, sino se rechaza.
 
 **Solución:**
 $M=(Q,\Sigma,\Gamma,\delta,q_0,\beta,F)$
