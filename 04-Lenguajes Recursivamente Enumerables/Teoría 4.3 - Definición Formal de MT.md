@@ -90,11 +90,106 @@ De nuevo, tenemos dos excepciones importantes.
 
 Si $i=n$, entonces la casilla $i+1$ contiene un espacio en blanco, por lo que dicha casilla no formaba parte de la configuración anterior. Por tanto:
 
-$X_1X_2\cdots X_{n-1} \mathbf{q} X_n$ $\vdash_M$ $X_1X_2\cdots X_{n-1}Y \mathbf{p} \beta$
+$X_1X_2\cdots X_{n-1} mathbf{q} X_n$ $\vdash_M$ $X_1X_2\cdots X_{n-1}Y \mathbf{p} \beta$
 
 **2. Se escribe un blanco en la primera posición**
 
 Si $i=1$ e $Y=\beta$, entonces el símbolo $\beta$ escrito sobre $X_1$ se añade a la secuencia infinita de espacios en blanco anteriores a la cadena de entrada y no aparecerá en la siguiente configuración. Por tanto:
 
 $\mathbf{q} X_1X_2\cdots X_n$ $\vdash_M$ $\mathbf{p} X_2\cdots X_{n}$
+
+## Ejemplo 1: 
+
+Sea $L =$ { $0^n1^n \mid n \geq 0$ }. Construir una $MT$ que acepte $L$.
+
+El conjunto $L$ contiene todas las cadenas formadas por $n$ ceros seguidos de $n$ unos, con $n \geq 0\$.
+
+Ejemplos: $\varepsilon, 01,0011,000111,00001111,\ldots$
+
+**Idea general de la solución:** En cada iteración la máquina:
+
+1. Borrar el primer $0$ no procesado.
+2. Avanzar hasta el extremo derecho de la cadena (buscar el primer blanco a la dercha).
+3. Borra el último $1$ no procesado.
+4. Regresar al comienzo (buscar el primer blanco a la izquierda).
+5. Repite el proceso hasta no tener más $0's$ y $1's$ para emparejar.
+6. Si la cinta queda vacía se apceta, sino se rechaza.
+
+**Solución:**
+$M=(Q,\Sigma,\Gamma,\delta,q_0,\beta,F)$
+
+donde:
+
+$Q =$ { $q_0,q_1,q_2,q_3,q_f$ }
+
+$\Sigma =$ { $0,1$ } 
+
+$\Gamma =$ { $0,1,\beta$ } 
+
+$q_0 = q_0$ 
+
+$\beta=\beta$ 
+
+$F=$ { $q_f$ } 
+
+Función de transición:
+
+| $Q$  | $0$ | $1$ | $\beta$ |
+|----|----|----|----|
+| $q_0$ | $(q_1, \beta, D)$ | $–$ | ($q_f, \beta, D)$ |
+| $q_1$ | $(q_1, 0, D)$ | $(q_1, D, I)$ | $(q_2, \beta, I)$ |
+| $q_2$ | $–$ | $(q_3, \beta, I)$ | $–$ |
+| $q_3$ | $(q_3, 0, I)$ | $(q_3, 1, I)$ | $(q_0, \beta, D)$ |
+| $q_f$  | $–$ | $–$ | $–$ |
+
+**Función de cada estado:**
+
+$q_0$: buscar un 0 sin procesar
+
+La máquina comienza en este estado.
+
+> Si encuentra un $0$, lo reemplaza por $\beta$ (lo marca como procesado) y pasa a $q_1$.
+> 
+> Si encuentra un $\beta$, significa que ya no quedan símbolos por procesar y la cadena es aceptada.
+
+En otras palabras, $q_0$ selecciona el próximo $0$ que será emparejado con un $1$.
+
+$q_1$: avanzar hasta el final de la cadena
+
+En este estado la máquina se mueve hacia la derecha.
+
+> Mientras lea $0$ o un $1$, continúa avanzando.
+> 
+> Cuando encuentra el final de la cadena ($\beta$), cambia al estado $q_2$ para intentar emparejar.
+
+Este estado se utiliza para llegar al extremo derecho de la parte aún no procesada de la cinta.
+
+$q_2$: eliminar el último 1
+
+En este estado la máquina:
+
+> Debe encontrar un $1$.
+> 
+> Reemplaza ese $1$ por $\beta$
+> 
+> Pasa a $q_3$.
+
+De esta forma elimina el último $1$ disponible para emparejarlo con el $0$ eliminado anteriormente.
+
+$q_3$: regresar al comienzo
+
+En este estado la máquina se mueve hacia la izquierda.
+
+> Mientras lee $0$ o $1$, sigue retrocediendo.
+> 
+> Cuando encuentra un $\beta$ al comienzo de la cadena, pasa a $q_0$ y se mueve una posición a la derecha.
+
+Así vuelve al inicio para comenzar una nueva iteración.
+
+$q_f$: aceptación
+
+> Es el estado final. Cuando la máquina llega a este estado, la ejecución termina y la cadena es aceptada.
+
+
+
 
