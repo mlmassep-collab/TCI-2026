@@ -352,3 +352,155 @@ $L(M) =$ { $w \in \Sigma^{*} | \mathbf{q_0} w \overset{\ast}{\vdash_M} \alpha \m
 Para algún estado $\mathbf{p} \in F$ y cualquier cadena $\alpha$ y $\beta$. 
 
 El conjunto de lenguajes que podemos aceptar utilizando una máquina de Turing a menudo se denominan lenguajes recursivamente enumerables o lenguajes RE. 
+
+## Ejemplo 2
+
+Diseñe una $MT$ sobre el alfabeto $\Sigma = {0,1,2}$ que determine si una cadena $w$ está formada por dos subcadenas de {0,1}* que tengan igual cantidad de $0’s$ y de $1’s$ y separadas por el caracter 2. Explique el propósito de cada estado.
+
+**Estrategia:**
+
+1. Seleccionar un símbolo sin procesar de la izquierda del $2$.
+2. Marcarlo con $X$ si es $0$ o con $Y$ si es $1$.
+3. Cruzar el separador $2$.
+4. Buscar y marcar un símbolo correspondiente en la derecha.
+5. Volver al inicio.
+6. Verificar que todos los símbolos fueron emparejados.
+
+**Solución:**
+
+$M=(Q,\Sigma,\Gamma,\delta,q_0,B,F)$
+
+donde:
+
+$Q =$ { $q_0,q_1,q_2,d2_0,d2_1,R_{d2},R_{i2},q_3,q_f$ }
+
+$\Sigma =$ { $0,1,2$ }
+
+$\Gamma =$ { $0,1,2,X,Y,\beta$ }
+
+$q_0=q_0$
+
+$B=\beta$
+
+$F=$ { $q_f$ }
+
+Función de transición:
+
+| $Q$ | $0$ | $1$ | $X$ | $Y$ | $2$ | $\beta$ |
+|---|---|---|---|---|---|---|
+| $q_0$ | $(q_1,X,D)$ | $(q_2,Y,D)$ | $–$ | $–$ | $(q_3,2,D)$ | $–$ |
+| $q_1$ | $(q_1,0,D)$ | $(q_1,1,D)$ | $–$ | $–$ | $(d2_0,2,D)$ | $–$ |
+| $q_2$ | $(q_2,0,D)$ | $(q_2,1,D)$ | $–$ | $–$ | $(d2_1,2,D)$ | $–$ |
+| $d2_0$ | $(R_d2,X,I)$ | $(d2_0,1,D)$ | $(d2_0,X,D)$ | $(d2_0,Y,D)$ | $–$ | $–$ |
+| $d2_1$ | $(d2_1,0,D)$ | $(R_d2,Y,I)$ | $(d2_1,X,D)$ | $(d2_1,Y,D)$ | $–$ | $–$ |
+| $R_{d2}$ | $(R_{d2},0,I)$ | $(R_{d2},1,I)$ | $(R_{d2},X,I)$ | $(R_{d2},Y,I)$ | $(R_{i2},2,I)$ | $–$ |
+| $R_{i2}$ | $(R_{i2},0,I)$ | $(R_{i2},1,I)$ | $(q_0,X,D)$ | $(q_0,Y,D)$ | $–$ | $–$ |
+| $q_3$ | $–$ | $–$ | $(q_3,X,D)$ | $(q_3,Y,D)$ | $–$ | $(q_f,\beta,D)$ |
+| $q_f$ | $–$ | $–$ | $–$ | $–$ | $–$ | $–$ |
+
+**Función de cada estado:**
+
+$q_0$: marca $0$ con $X$ o bien marca $1$ con $Y$ a la izquierda del 2, si ya están todos los $0´s$ y $1's$ lo único que se puede leer es un $2$, queda por verificar que no hayan $0$ y $1$ a la derecha del $2$ sin marcar en el estado $q_3$.
+
+$q_1$: se llega a este estado habiendo marcado un $0$ con $X$ y sirve para buscar el $2$ a la derecha, cambiar a $d2_0$ para buscar el primer $0$ sin marcar.
+
+$q_2$: se llega a este estado habiendo marcado un $1$ con $Y$, sirve para buscar el $2$ a la derecha, cambiar a $d2_1$ para buscar el primer $1$ sin marcar.
+
+$d2_0$: este estado está a la derecha del $2$, busca el primer $0$ sin marcar y lo marca con $X$. Cambiar al estado $RD2$ para retroceder.
+
+$d2_1$: este estado está a la derecha del $2$, busca el primer $1& sin marcar y lo marco con $Y$. Cambiar al estado $RD2$ para retroceder.
+
+$R_{d2}$: es el estado de Retroceso a la Derecha del $2$, hasta encontrar el $2$ y luego pasa al estado $RI_2$ de retorceso a la izquierda del $2$.
+
+$R_{i2}$: es el estado de Retroceso a la Izquierda del $2$, hasta encontrar una $X$ o una $Y$ para volver a empezar.
+
+$q_3$: verifica que no queden $0's$ ni $1's$ sin marcar a la derecha del carácter $2$.
+
+**Ejemplo de procesamiento de cadena:**
+
+Sea $w=1102101$
+
+$\mathbf{q_0}1102101
+\vdash_M$
+
+$Y\mathbf{q_2}102101
+\vdash_M
+Y1\mathbf{q_2}02101
+\vdash_M
+Y10\mathbf{q_2}2101\vdash_M$
+
+$Y102\mathbf{d2_1}101\vdash_M$
+
+$Y102\mathbf{R_{d2}}Y01
+\vdash_M
+Y10\mathbf{R_{d2}}2Y01\vdash_M$
+
+$Y1\mathbf{R_{i2}}02Y01
+\vdash_M
+Y\mathbf{R_{i2}}102Y01
+\vdash_M
+\mathbf{R_{i2}}Y102Y01
+\vdash_M$
+
+$Y\mathbf{q_0}102Y01\vdash_M$
+
+$YY\mathbf{q_2}02Y01
+\vdash_M
+YY0\mathbf{q_2}2Y01\vdash_M$
+
+$YY02\mathbf{d2_1}Y01
+\vdash_M
+YY02Y\mathbf{d2_1}01
+\vdash_M
+YY02Y0\mathbf{d2_1}1
+\vdash_M$
+
+$YY02Y\mathbf{R_{d2}}0Y
+\vdash_M
+YY02\mathbf{R_{d2}}Y0Y
+\vdash_M$
+
+$YY0\mathbf{R_{i2}}2Y0Y
+\vdash_M
+YY\mathbf{R_{i2}}02Y0Y
+\vdash_M
+Y\mathbf{R_{i2}}Y02Y0Y
+\vdash_M
+$
+
+$YY\mathbf{q_0}02Y0Y
+\vdash_M$
+
+$YYX\mathbf{q_1}2Y0Y
+\vdash_M$
+
+$YYX2\mathbf{d2_0}Y0Y
+\vdash_M
+YYX2Y\mathbf{d2_0}0Y
+\vdash_M$
+
+$YYX2Y\mathbf{R_{d2}}XY
+\vdash_M
+YYX2\mathbf{R_{d2}}YXY
+\vdash_M$
+
+$YYX\mathbf{R_{i2}}2YXY
+\vdash_M
+YY\mathbf{R_{i2}}X2YXY
+\vdash_M$
+
+$YYX\mathbf{q_0}2YXY
+\vdash_M$
+
+$YYX2\mathbf{q_3}YXY
+\vdash_M
+YYX2Y\mathbf{q_3}XY
+\vdash_M
+YYX2YX\mathbf{q_3}Y
+\vdash_M
+YYX2YXY\mathbf{q_3}B
+\vdash_M$
+
+$YYX2YXYB\mathbf{q_f}$
+
+$\Rightarrow 1102101\in L$
