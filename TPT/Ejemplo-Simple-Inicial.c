@@ -6,8 +6,9 @@
 typedef char* str;
 
 str load2(const char* s){
-    str r = (str)malloc(strlen(s)+1);
-    strcpy(r, s);
+    size_t len = strlen(s);
+    str r = (str)malloc(len + 1);
+    if (r) memcpy(r, s, len + 1);
     return r;
 }
 
