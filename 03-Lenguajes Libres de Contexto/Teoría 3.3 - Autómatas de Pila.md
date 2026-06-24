@@ -376,7 +376,7 @@ $F = \{q_f\}$
 
 1. Si la cadena de entrada $u = wcw^R$ tiene $w = \lambda$ entonces $u = c$
 
-$\Delta(q_0, c, Z_0) = (q_f, Z_0)$
+$\Delta(q_0, c, Z_0) = (q_1, Z_0)$
 
 2. Si la cadena de entrada $u = wcw^R$ tiene $w \ne \lambda$, entonces acumular $w$:
 
