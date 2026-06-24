@@ -398,7 +398,7 @@ $\Delta(q_0, c, A) = (q_1, A)$
 
 $\Delta(q_0, c, B) = (q_1, B)$
 
-4. Emparejar** $w^R$
+4. Emparejar $w^R$
 
 $\Delta(q_1, a, A) = (q_1, \lambda)$
 
